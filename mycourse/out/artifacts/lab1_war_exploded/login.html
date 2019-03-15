@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-cn" charset="UTF-8">
+<head>
+    <meta http-equiv="Content-Type" type="text/html" charset="UTF-8">
+    <title>login</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type=text/css href="zui-1.8.1-dist/dist/css/zui.min.css" charset="UTF-8">
+    <script type="text/javascript" src="zui-1.8.1-dist/dist/lib/jquery/jquery.js"></script>
+    <script src="zui-1.8.1-dist/dist/js/zui.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#logIn").click(function () {
+                var userType=$('input:radio:checked').val();
+                var username=$("#inputUsername").val();
+                var password=$("#inputPassword").val();
+
+                if(userType==null) {
+                    alert("Usertype is null, please choose usertype.");
+                    return;
+                }
+                if (username == "") {
+                    alert("Username is null, please input username.");
+                    return;
+                }
+                if (password == "") {
+                    alert("Passowrd is null, please input password.");
+                    return;
+                }
+                $.ajax({
+                    type: "POST",                           //传数据的方式
+                    url: "/mycourse/login", //servlet地址
+                    data: {userType: userType, username: username, password: password},//传的数据
+                    datatype: "text",
+                    success:function (result) {
+                        if(result=='login successfully'){
+                            //alert("sucess:"+result);
+                            if(userType=='Admin'){
+                                window.location.href="/mycourse/admin/courseList.html";
+                            }else if(userType=='Student'){
+                                window.location.href="/mycourse/student/coursingList.html";
+                            }else{
+                                window.location.href="/mycourse/teacher/courseList.html";
+                            }
+                        }else{
+                            alert(result);
+                        }
+                    }
+                });
+           });
+            $("#register").click(function () {
+                window.location.href="/mycourse/register.html";
+            });
+        });
+    </script>
+    <style type="text/css">
+        #backDiv{
+            position:absolute;
+            background:url(res/img/background.png);
+            background-repeat: no-repeat;
+            background-size:100% 100%;
+            height: 100%;
+            width:100%;
+        }
+        #logDiv{
+            position:absolute;
+            background-color: rgba(243,253,255,0.5);
+            height: 35%;
+            width:30%;
+            margin-top: 20%;
+            margin-left:10% ;
+            border-radius:20px ;
+            border-style: solid;
+            border-color: rgba(243,253,255,0.7);
+        }
+        .logInput{
+            width: 75%;
+            margin-left: 13%;
+            margin-top: 6%;
+        }
+    </style>
+</head>
+<body>
+<div id="backDiv">
+    <div id="logDiv">
+        <div class="input-control has-icon-left logInput" style="margin-top: 10%;">
+            <input id="inputUsername" type="text" class="form-control" placeholder="username">
+            <label for="inputUsername" class="input-control-icon-left"><i class="icon icon-user "></i></label>
+        </div>
+        <div class="input-control has-icon-left logInput">
+            <input id="inputPassword" type="password" class="form-control" placeholder="password">
+            <label for="inputPassword" class="input-control-icon-left"><i class="icon icon-key"></i></label>
+        </div>
+        <div style="margin-left: 23%;margin-top: 8%">
+            <label class="radio-inline" style="margin-left: 1%;">
+                <input type="radio" name="radioOptions" value="Admin"> Admin
+            </label>
+            <label class="radio-inline" style="margin-left: 2%;">
+                <input type="radio" name="radioOptions" value="Teacher"> Teacher
+            </label>
+            <label class="radio-inline" style="margin-left: 2%;">
+                <input type="radio" name="radioOptions" value="Student"> Student
+            </label>
+        </div>
+        <div style="display: inline;">
+            <button id="logIn" style="margin-left: 30%;margin-top: 8%;" type="button" class="btn">log in</button>
+            <button id="register" class="btn" type="button" style="margin-left:5%;margin-top: 8%;">register</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

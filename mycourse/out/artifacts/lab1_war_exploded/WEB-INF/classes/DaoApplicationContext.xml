@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/aop
+      http://www.springframework.org/schema/aop/spring-aop.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context.xsd
+      http://www.springframework.org/schema/tx
+      http://www.springframework.org/schema/tx/spring-tx.xsd
+     ">
+    <!-- <bean id="..." class="..."> collaborators and configuration for this
+        bean go here </bean> <bean id="..." class="..."> collaborators and configuration
+        for this bean go here </bean> more bean definitions go here -->
+
+    <context:annotation-config />
+    <context:component-scan base-package="dao" />
+    <bean id="AdminDaoService" class="dao.AdminDao">
+    </bean>
+    <bean id="ChooseCoursingDaoService" class="dao.ChooseCoursingDao">
+    </bean>
+    <bean id="CourseDaoService" class="dao.CourseDao">
+    </bean>
+    <bean id="CoursewareDaoService" class="dao.CoursewareDao">
+    </bean>
+    <bean id="CourseworkDaoService" class="dao.CourseworkDao">
+    </bean>
+    <bean id="CoursingDaoService" class="dao.CoursingDao">
+    </bean>
+    <bean id="FollowpostDaoService" class="dao.FollowpostDao">
+    </bean>
+    <bean id="PostingDaoService" class="dao.PostingDao">
+    </bean>
+    <bean id="StudentDaoService" class="dao.StudentDao">
+    </bean>
+    <bean id="StudentworkDaoService" class="dao.StudentworkDao">
+    </bean>
+    <bean id="TakeCoursingDaoService" class="dao.TakeCoursingDao">
+    </bean>
+    <bean id="TeacherDaoService" class="dao.TeacherDao">
+    </bean>
+
+
+</beans>

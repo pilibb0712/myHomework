@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-cn" charset="UTF-8">
+<head>
+    <meta http-equiv="Content-Type" type="text/html" charset="UTF-8">
+    <title>A Test</title>
+    <link rel="stylesheet" type=text/css href="zui-1.8.1-dist/dist/css/zui.min.css" charset="UTF-8">
+    <script type="text/javascript" src="zui-1.8.1-dist/dist/lib/jquery/jquery.js"></script>
+    <script src="zui-1.8.1-dist/dist/js/zui.min.js"></script>
+    <script src="zui-1.8.1-dist/dist/lib/chart/zui.chart.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //var user={name:"bb",money:200,password:1234};
+           /* $.ajax({
+                type: "POST",                           //传数据的方式
+                url: "/test", //servlet地址
+                data:{"user":JSON.stringify(user)},//传的数据
+                datatype:"json",
+                success: function(result){//传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                    var res=JSON.parse(result)
+                    var user1=res[0];
+                    var user2=res[1];
+                   // alert("user1:"+user1.name);
+                   // alert("user2:"+user2.name);
+                    $("#t1").val(user1.name);
+                    $("#t2").val(user2.name);
+                    //var array=eval(result);
+                    //var item1=array[0];
+
+                    //$("#testAjax").val(result);           //找到输入框 并且将result的值 传进去
+                }
+            });
+            */
+            $.ajax({
+                type: "POST",                           //传数据的方式
+                url: "/mycourse/test", //servlet地址
+                data:{},//传的数据
+                datatype:"json",
+                success: function(result){
+                    var map=JSON.parse(result);
+                    var lables=[];
+                    var values=[];
+                   for(var key in map){
+                       alert(key+" "+map[key]);
+                       lables.push(key);
+                       values.push(map[key]);
+                   }
+                    var data = {
+                        // labels 数据包含依次在X轴上显示的文本标签
+                        labels:lables,
+                        datasets: [{
+                            // 数据集名称，会在图例中显示
+                            label: "t",
+                            color: "red",
+                            data: values
+                        }]
+                    };
+
+                   var values2=[20,30,50];
+                   var labels2=["admin","teacher","student"];
+
+                    var data2 = [{
+                        value: values2[0],
+                        color: "blue", // 使用颜色名称
+                        label: labels2[0]
+                    }, {
+                        value: values2[1],
+                        color:"#F7464A", // 自定义颜色
+                        // highlight: "#FF5A5E", // 自定义高亮颜色
+                        label: labels2[1]
+                    }, {
+                        value: values2[2],
+                        color: 'green',
+                        label: labels2[2]
+                    },];
+
+// 图表配置项，可以留空来使用默认的配置
+                    var options2 = {
+                        scaleShowLabels: true, // 展示标签
+                    };
+
+// 创建饼图
+                    var myPieChart = $("#myPieChart").pieChart(data2, options2);
+
+                    var options = {}; // 图表配置项，可以留空来使用默认的配置
+                    var myLineChart = $("#myChart").lineChart(data, options);
+                }
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+<canvas id="myChart" width="400" height="400"></canvas>
+<canvas id="myPieChart" width="400" height="400"></canvas>
+<!--button id="testQuery" value="testQuery">testJQuery</button>
+<button class="btn " type="button"><i class="icon icon-star"></i> 带图标的按钮</button>
+<div class="btn-group" data-toggle="buttons">
+    <label class="btn active">
+        <input type="checkbox" checked=""> 多选1
+    </label>
+    <label class="btn">
+        <input type="checkbox"> 多选2
+    </label>
+    <label class="btn">
+        <input type="checkbox"> 多选3
+    </label>
+</div>
+<input id="testAjax" type="text" value="1"/>
+<input id="t1" type="text" value="0"/>
+<input id="t2" type="text" value="0"/>
+<form action="/test" method="post" enctype="multipart/form-data">
+    <input id="File1" name="fileupload" type="file" value="" />
+    <input id="" type="submit" value="upload" />
+</form>
+<img src="/test">
+<a href="/test">下载</a>
+<!--form action="../test" method="post">
+    text:
+    <input type="submit" value="submit">
+    <br/>
+    <input type="hidden" name="text" value="bbbb">
+    text:
+    <input type="submit" value="submit">
+</form>
+<form action="../test" method="post">
+    <input type="hidden" name="text" value="aaaa">
+    <output name="out">hhhhhh</output>
+    <br/>
+    text:
+    <input type="submit" value="submit">
+</form-->
+</body>
+</html>

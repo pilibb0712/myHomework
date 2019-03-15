@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>coursing</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../res/css/nav.css">
+    <link rel="stylesheet" type=text/css href="../zui-1.8.1-dist/dist/css/zui.min.css" charset="UTF-8">
+    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../zui-1.8.1-dist/dist/lib/uploader/zui.uploader.min.css" >
+    <script type="text/javascript" src="../zui-1.8.1-dist/dist/lib/jquery/jquery.js"></script>
+    <script src="../bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+    <script src="../zui-1.8.1-dist/dist/js/zui.min.js"></script>
+    <script src="../zui-1.8.1-dist/dist/lib/uploader/zui.uploader.min.js"></script>
+    <script src="../zui-1.8.1-dist/dist/lib/datetimepicker/datetimepicker.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+                $.ajax({
+                    //get Coursing Infor
+                    type: "POST",                           //传数据的方式
+                    url: "/mycourse/coursing", //servlet地址
+                    data: {operationType: "getCoursing"},//传的数据
+                    datatype: "json",
+                    success: function (result) {
+                        if (result == "this coursing does not exist") {
+                            alert(result);
+                        } else {
+                            var res = JSON.parse(result);
+                            var coursing=JSON.parse(res.coursing);
+                            //res.coursing is a json str
+                            var courseContent=res.content;
+                            var courseName = coursing.cname;
+                            var term=coursing.term;
+                            var classNum=coursing.class_num;
+                            var classAndTerm=term+"   "+"class "+classNum;
+                            var limitNum=coursing.limit_num;
+                            var takeNum=coursing.take_num;
+                            var startTime=coursing.start_time;
+                            var chooseTime=coursing.choose_time;
+                            var endTime=coursing.end_time;
+                            var scoreFileName=coursing.scorefile_name;
+
+                            $("#courseName").html(courseName);
+                            $("#coursingTermAndClassNum").html(classAndTerm);
+                            $("#courseContent").html(courseContent);
+                            $("#num").html("limit-num: "+limitNum+"&nbsp;&nbsp;&nbsp; take-num: "+takeNum);
+                            $("#startTime").html("start-time: "+startTime);
+                            if(chooseTime==null){
+                                $("#chooseTime").html("choose-time: choose not begin");
+                            }else{
+                                $("#chooseTime").html("choose-time: "+chooseTime);
+                            }
+                            if(endTime==null){
+                                $("#endTime").html("end-time: not end");
+                            }else{
+                                $("#endTime").html("end-time: "+endTime);
+                                }
+                                if(scoreFileName==null){
+                                    $("#coursingScoreFileDiv").html("no score file");
+                                }else{
+                                    $("#coursingScoreFileDiv").append("<a href=\"javascript:void(0)\" onclick=\"downloadCoursingScoreFile('"+scoreFileName+"')\">"+scoreFileName+"</a>");
+                                }
+
+                        }
+                    }
+                });
+
+
+               $.ajax({
+                    //get courseworks
+                    type: "POST",                           //传数据的方式
+                    url: "/mycourse/coursework", //servlet地址
+                    data: {operationType: "getCourseworkList"},//传的数据
+                    datatype: "json",
+                    success: function (result) {
+                        if (result == "") {
+                            alert("no coursework");
+                        } else{
+                                var res=JSON.parse(result);
+                                $.each(res,function (i,coursework) {
+                                    var topic=coursework.topic;
+                                    var time=coursework.time;
+                                    var cwid=coursework.id;
+                                    var text1="<div class=\"item-heading\">\n" +
+                                        "                        <h4 style=\"display: inline;\">\n" +
+                                        "                            <a href=\"javascript:void(0)\" onclick=\"viewCoursework('";
+                                    //cwid
+                                    var text2="')\">";
+                                    //courseworkTopic
+                                    var text3="</a>\n" +
+                                        "                        </h4>\n" +
+                                        "                        <h5>";
+                                    //courseworkTime
+                                    var text4="</h5>\n" +
+                                        "                        <hr>\n" +
+                                        "                    </div>";
+                                    $("#courseworkList").append(text1+cwid+text2+topic+text3+time+text4);
+                                });
+                        }
+                    }
+                });
+
+            $("#createCoursework").click(function () {
+                var topic=$("#inputCourseworkTopic").val();
+                var content=$("#inputCourseworkContent").val();
+                var ddl=$("#ddlTime").val();
+                if(topic==""){
+                    alert("Topic is null, please input topic.");
+                    return;
+                }
+                if(content==""){
+                    alert("Content is null, please input content.");
+                    return;
+                }
+                if(ddl==""){
+                    alert("Deadline is null, please input deadline.");
+                    return;
+                }
+                $("#createCourseworkModal").modal('hide');
+                $(".modal-backdrop").remove();
+                $.ajax({
+                    type: "POST",                           //传数据的方式
+                    url: "/mycourse/coursework", //servlet地址
+                    data: {operationType:"createCoursework",courseworkTopic:topic,courseworkContent:content,ddl:ddl},//传的数据
+                    datatype: "text",
+                    success:function (result) {
+                        alert(result);
+                        window.location.reload();
+                    }
+                });
+
+            });
+
+
+            $("#sendEmailToAll").click(function () {
+                var topic=$("#inputEmailTopic").val();
+                var content=$("#inputEmailContent").val();
+                $("#emailModal").modal('hide');
+                $(".modal-backdrop").remove();
+                $.ajax({
+                    type: "POST",                           //传数据的方式
+                    url: "/mycourse/coursing", //servlet地址
+                    data: {operationType: "emailToAll",emailTopic:topic,emailContent:content},//传的数据
+                    datatype: "json",
+                    success: function (result) {
+                        alert(result);
+                    }
+                });
+            });
+
+            $("#endCoursing").click(function () {
+                $.ajax({
+                    type: "POST",                           //传数据的方式
+                    url: "/mycourse/coursing", //servlet地址
+                    data: {operationType: "endCoursing"},//传的数据
+                    datatype: "json",
+                    success: function (result) {
+                        alert(result);
+                        window.location.reload();
+                    }
+                });
+            });
+
+            $('.close').click(function () {
+                window.location.reload();
+            });
+
+            $(".form-date").datetimepicker(
+                {
+                    language:  "zh-CN",
+                    weekStart: 1,
+                    todayBtn:  1,
+                    autoclose: 1,
+                    todayHighlight: 1,
+                    startView: 2,
+                    minView: 2,
+                    forceParse: 0,
+                    format: "yyyy-mm-dd"
+                });
+        });
+        function downloadCoursingScoreFile(fileName){
+            var a = document.createElement('a');
+            var url="/mycourse/coursingScore/"+fileName;
+            a.href = url;
+            a.download = fileName;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        function viewCoursework(cwid){
+            $.ajax({
+                type: "POST",                           //传数据的方式
+                url: "/mycourse/coursework", //servlet地址
+                data: {operationType:"setCourseworkId",courseworkId:cwid},//传的数据
+                datatype: "text",
+                success:function (result) {
+                    window.location.href="/mycourse/teacher/coursework.html";
+                }
+            });
+        }
+    </script>
+    <style type="text/css">
+        #backDiv{
+            position:absolute;
+            background:url(../res/img/background2.png);
+            background-repeat: no-repeat;
+            background-size:100% 100%;
+            height: 100%;
+            width:100%;
+        }
+        #coursingBackDiv{
+            margin-top: 4%;
+            margin-left: 16%;
+            height: 85%;
+            width: 46%;
+            background:rgba(255,255,255,0.8);
+            border-radius:10px;
+            padding-left: 2%;
+            padding-right: 2%;
+            padding-top: 2%;
+            padding-bottom: 2%;
+        }
+        .input-group-addon{
+            font-size: 17px;
+            width:20%;
+        }
+    </style>
+</head>
+<body>
+<div id="backDiv">
+    <div class="leftNav-item" style="height: 60%;width: 15%;margin-top: 3%;">
+        <ul>
+            <li style="margin-top: 25px;margin-left: 40px;">
+                <i class="icon icon-book icon-3x"></i>
+                <a href="/mycourse/teacher/courseList.html" class="rota">Course</a>
+            </li>
+            <li style="margin-top: 25px;margin-left: 40px;">
+                <i class="icon icon-bookmark icon-5x"></i>
+                <a href="/mycourse/teacher/coursingList.html" class="rota">Coursing</a>
+            </li>
+            <li style="margin-top: 25px;margin-left: 40px;">
+                <i class="icon icon-bar-chart icon-5x"></i>
+                <a href="/mycourse/teacher/teacherStats.html" class="rota">Statistics</a>
+            </li>
+            <li style="margin-top: 25px;margin-left: 40px;">
+                <i class="icon icon-home icon-5x"></i>
+                <a href="/mycourse/teacher/teacherInfor.html" class="rota">My Infor</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="coursingBackDiv">
+        <h1 id="courseName"></h1>
+        <h5 id="coursingTermAndClassNum"></h5>
+        <hr style="background: rgba(0,0,0,0.5);">
+        <h3 id="courseContent"></h3>
+        <hr style="background: rgba(0,0,0,0.5);">
+        <h4 id="num"></h4>
+        <hr style="background: rgba(0,0,0,0.5);">
+        <h4 id="startTime"></h4>
+        <h4 id="chooseTime"></h4>
+        <h4 id="endTime"></h4>
+        <hr style="background: rgba(0,0,0,0.5);">
+        <div class="panel" style="height: 35%;margin-top: 3%;">
+            <div class="panel-heading" style="font-size: 17px;background: #f8f9fa;">
+                Coursework
+                <button type="button" data-toggle="modal" data-target="#createCourseworkModal" style="background: none;border: none;">
+                    <i class="icon icon-plus"></i>
+                </button>
+            </div>
+            <div class="panel-body" style="width: 100%;height: 100%;">
+                <div id="courseworkList" class="scrollbar-hover" style="height: 83%; overflow: scroll;">
+                </div>
+            </div>
+        </div>
+
+        <div class="panel" style="margin-top: 3%;">
+            <div class="panel-heading" style="font-size: 17px;background: #f8f9fa;">
+                Score file
+                <button type="button" data-toggle="modal" data-target="#uploadModal" style="background: none;border: none;">
+                    <i class="icon icon-plus"></i>
+                </button>
+            </div>
+            <div id="coursingScoreFileDiv" class="panel-body" style="width: 100%;height: 100%;font-size: 17px;">
+                <i class="icon icon-paper-clip" style="margin-left:2%;"></i>
+            </div>
+        </div>
+        <div style="margin-left: 30%;">
+            <button class="btn" type="button" data-toggle="modal" data-target="#emailModal" style="margin-left: 5%;background-color: #e7eaec;border-color: #b3bac1;font-size: 15px;">email to all</button>
+            <button id="endCoursing" class="btn" type="button" style="margin-left: 15%;background-color: #e7eaec;border-color: #b3bac1;font-size: 15px;">end</button>
+         </div>
+
+
+        <div class="modal fade" id="createCourseworkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Coursework Edit</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <input id="inputCourseworkTopic" type="text" class="form-control" style="font-size: 17px;" placeholder="topic">
+                        <textarea id="inputCourseworkContent" class="form-control" style="font-size: 17px;height: 150px;margin-top: 3%;" placeholder="content"></textarea>
+                        <div class="input-group" style="margin-top: 3%;">
+                            <span class="input-group-addon">deadline</span>
+                            <input id="ddlTime"type="text" class="form-control form-date" style="font-size: 17px;" placeholder="time will be 00:00:00">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="createCoursework" type="button" class="btn btn-primary" style="font-size: 15px;height: 30px;width: 60px;">create</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+
+
+        <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Courseware Upload</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div id='uploadDiv' class="uploader" data-ride="uploader" data-url="../coursing">
+                            <div class="uploader-message text-center">
+                                <div class="content"></div>
+                            </div>
+                            <div class="uploader-files file-list file-list-lg" data-drag-placeholder="please drag file here"></div>
+                            <div class="uploader-actions">
+                                <div class="uploader-status pull-right text-muted"></div>
+                                <button type="button" class="btn btn-link uploader-btn-browse"><i class="icon icon-plus"></i> choose </button>
+                                <button type="button" class="btn btn-link uploader-btn-start"><i class="icon icon-cloud-upload"></i> upload </button>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+
+        <div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Email Edit</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <input id="inputEmailTopic" type="text" class="form-control" style="font-size: 17px;" placeholder="topic">
+                        <textarea id="inputEmailContent" class="form-control" style="font-size: 17px;height: 150px;margin-top: 3%;" placeholder="content"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="sendEmailToAll" type="button" class="btn btn-primary" style="font-size: 15px;height: 30px;width: 60px;">email</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+
+</div>
+</body>
+</html>

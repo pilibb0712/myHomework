@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>personal infor</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../res/css/nav.css">
+    <link rel="stylesheet" type=text/css href="../zui-1.8.1-dist/dist/css/zui.min.css" charset="UTF-8">
+    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../zui-1.8.1-dist/dist/lib/uploader/zui.uploader.min.css" >
+    <script type="text/javascript" src="../zui-1.8.1-dist/dist/lib/jquery/jquery.js"></script>
+    <script src="../bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+    <script src="../zui-1.8.1-dist/dist/js/zui.min.js"></script>
+    <script src="../zui-1.8.1-dist/dist/lib/uploader/zui.uploader.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var preUsername="";
+            var preGrade="";
+            var preSnumber="";
+            $.ajax({
+                type: "POST",                           //传数据的方式
+                url: "/mycourse/personalInfor", //servlet地址
+                data: {operationType:"getUserInfor"},//传的数据
+                datatype: "json",
+                success:function (result) {
+                    var student=JSON.parse(result);
+                    var studentName=student.name;
+                    var studentGrade=student.grade;
+                    var studentSnumber=student.student_number;
+                    var studentEmail=student.email;
+                    var studentPic=student.pic_name;
+                    preUsername=studentName;
+                    preGrade=studentGrade;
+                    preSnumber=studentSnumber;
+                    $("#userName").val(studentName);
+                    $("#userGrade").val(studentGrade);
+                    $("#userSnumber").val(studentSnumber);
+                    $("#userEmail").val(studentEmail);
+                    if(studentPic!=null){
+                        $("#userPic").attr("src","/mycourse/userPic/"+studentPic);
+                    }else{
+                        $("#userPic").attr("src","../res/img/pic.bmp");
+                    }
+                }
+            });
+            $("#editInfor").click(function () {
+                $("#userName").attr("disabled",false);
+                $("#userGrade").attr("disabled",false);
+                $("#userSnumber").attr("disabled",false);
+            });
+
+            $("#saveInfor").click(function () {
+                var username=$("#userName").val();
+                var userGrade=$("#userGrade").val();
+                var userSnumber=$("#userSnumber").val();
+                if((username!=preUsername)||(userGrade!=preGrade)||(userSnumber!=preSnumber)){
+                    $.ajax({
+                        type: "POST",                           //传数据的方式
+                        url: "/mycourse/personalInfor", //servlet地址
+                        data: {operationType:"updateUserInfor",userName:username,userGrade:userGrade,userSnumber:userSnumber},//传的数据
+                        datatype: "json",
+                        success:function (result) {
+                            alert(result);
+                        }
+                    });
+                }
+                $("#userName").attr("disabled",true);
+                $("#userGrade").attr("disabled",true);
+                $("#userSnumber").attr("disabled",true);
+            });
+
+            $("#confirmCancelStudent").click(function () {
+                $("#confirmCancelModal").modal('hide');
+                $(".modal-backdrop").remove();
+                $.ajax({
+                    type: "POST",                           //传数据的方式
+                    url: "/mycourse/personalInfor", //servlet地址
+                    data: {operationType:"cancelStudent"},//传的数据
+                    datatype: "json",
+                    success:function (result) {
+                        alert(result);
+                        window.location.href="/mycourse";
+                    }
+                });
+            });
+
+            $('.close').click(function () {
+                window.location.reload();
+            });
+        });
+    </script>
+    <style type="text/css">
+        #backDiv{
+            position:absolute;
+            background:url(../res/img/background2.png);
+            background-repeat: no-repeat;
+            background-size:100% 100%;
+            height: 100%;
+            width:100%;
+        }
+        #inforBackDiv{
+            margin-top: 4%;
+            margin-left: 16%;
+            height: 85%;
+            width: 46%;
+            background:rgba(255,255,255,0.8);
+            border-radius:10px;
+        }
+    </style>
+</head>
+<body>
+<div id="backDiv">
+    <div class="leftNav-item" style="height: 60%;width: 15%;margin-top: 3%;">
+        <ul>
+            <li style="margin-top: 25px;margin-left: 40px;">
+                <i class="icon icon-book icon-3x"></i>
+                <a href="/mycourse/student/coursingList.html" class="rota">Choose</a>
+            </li>
+            <li style="margin-top: 25px;margin-left: 40px;">
+                <i class="icon icon-bookmark icon-5x"></i>
+                <a href="/mycourse/student/myCoursingList.html" class="rota">My Coursing</a>
+            </li>
+            <li style="margin-top: 25px;margin-left: 40px;">
+                <i class="icon icon-bar-chart icon-5x"></i>
+                <a href="/mycourse/student/studentStats.html" class="rota">Statistics</a>
+            </li>
+            <li style="margin-top: 25px;margin-left: 40px;">
+                <i class="icon icon-home icon-5x"></i>
+                <a href="/mycourse/student/studentInfor.html" class="rota">My Infor</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="inforBackDiv" class="list">
+        <div class="items items-hover" style="width: 50%;height: 100%;margin-left: 23%;"align="center">
+            <img id="userPic" width="100px" data-toggle="modal" data-target="#uploadModal" height="100px" class="img-circle" style="margin-top: 20%;" alt="圆形图片">
+            <div class="input-group" style="margin-top: 20%;">
+                <span class="input-group-addon" style="width: 20%;"><i class="icon icon-user"></i></span>
+                <input id="userName" disabled="disabled" type="text" style="font-size: 14px;" class="form-control">
+            </div>
+            <div class="input-group" style="margin-top: 5%;">
+                <span class="input-group-addon" style="width: 20%;"><i class="icon icon-tag"></i></span>
+                <input id="userGrade" disabled="disabled" type="text" style="font-size: 14px;" class="form-control">
+            </div>
+            <div class="input-group" style="margin-top: 5%;">
+                <span class="input-group-addon" style="width: 20%;"><i class="icon icon-flag"></i></span>
+                <input id="userSnumber" disabled="disabled" type="text" style="font-size: 14px;" class="form-control">
+            </div>
+            <div class="input-group" style="margin-top: 5%;">
+                <span class="input-group-addon" style="width: 20%;"><i class="icon icon-envelope"></i></span>
+                <input id="userEmail" disabled="disabled" type="text" style="font-size: 14px;" class="form-control">
+            </div>
+            <button id="editInfor" class="btn " type="button" style="margin-top: 15%;font-size: 16px;"><i class="icon icon-edit"></i> edit</button>
+            <button id="saveInfor" class="btn " type="button" style="margin-top: 15%;font-size: 16px;"><i class="icon icon-save" ></i> save</button>
+            <button class="btn " type="button" data-toggle="modal" data-target="#confirmCancelModal" style="margin-top: 15%;font-size: 16px;"><i class="icon icon-trash" ></i> cancel</button>
+        </div>
+
+    </div>
+
+
+    <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Pic Upload</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id='uploadDiv' class="uploader" data-ride="uploader" data-url="../personalInfor">
+                        <div class="uploader-message text-center">
+                            <div class="content"></div>
+                        </div>
+                        <div class="uploader-files file-list file-list-lg" data-drag-placeholder="please drag file here"></div>
+                        <div class="uploader-actions">
+                            <div class="uploader-status pull-right text-muted"></div>
+                            <button type="button" class="btn btn-link uploader-btn-browse"><i class="icon icon-plus"></i> choose </button>
+                            <button type="button" class="btn btn-link uploader-btn-start"><i class="icon icon-cloud-upload"></i> upload </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+    <div class="modal fade" id="confirmCancelModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><i class="icon-warning-sign"></i></h4>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure to cancel yourself?</p>
+                </div>
+                <div class="modal-footer">
+                    <button  id="confirmCancelStudent" type="button" class="btn btn-default">confirm</button>
+                    <button  type="button" class="btn btn-primary" data-dismiss="modal">cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

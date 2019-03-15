@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-cn" charset="UTF-8">
+<head>
+    <meta http-equiv="Content-Type" type="text/html" charset="UTF-8">
+    <title>register</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type=text/css href="zui-1.8.1-dist/dist/css/zui.min.css" charset="UTF-8">
+    <script type="text/javascript" src="zui-1.8.1-dist/dist/lib/jquery/jquery.js"></script>
+    <script src="zui-1.8.1-dist/dist/js/zui.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            var validateNum="";
+            function sendValidateEmail(emailAddress) {
+                //check email and then send validateNum
+                $.ajax({
+                    type: "POST",                           //传数据的方式
+                    url: "/mycourse/register", //servlet地址
+                    data: {operation:"validate",email:emailAddress},//传的数据
+                    datatype: "json",
+                    success:function (result) {
+                        var res=JSON.parse(result);
+                        var returnMess=res.returnType;
+                        if(returnMess=="email existed"){
+                            alert("The email address has existed.");
+                            return;
+                        }
+                        if(returnMess=="sent"){
+                            validateNum=res.validateNumber;
+                            alert("The validate email has sent.")
+                            return;
+                        }
+                        alert(result);
+                        //do not know about return-infor
+                    }
+                });
+            }
+            $("#studentValidateButton").click(function () {
+                   var email=$("#inputStudentEmail").val();
+                   if (email == "") {
+                    alert("Email is null, please input email.");
+                    return;
+                   }
+                  sendValidateEmail(email);
+            });
+            $("#registerStudent").click(function () {
+                var username=$("#inputStudentName").val();
+                var s_number=$("#inputStudentNumber").val();
+                var grade=$("#inputStudentGrade").val();
+                var email=$("#inputStudentEmail").val();
+                //has checked during validate
+                var password=$("#inputStudentPassword").val();
+                var validateInput=$("#inputStudentValidate").val();
+
+                if (username == "") {
+                    alert("Username is null, please input username.");
+                    return;
+                }
+                if (grade == "") {
+                    alert("Grade is null, please input grade.");
+                    return;
+                }
+                if (s_number == "") {
+                    alert("Student number is null, please input student number.");
+                    return;
+                }
+                if (password == "") {
+                    alert("Passowrd is null, please input password.");
+                    return;
+                }
+                if (email == "") {
+                    alert("Email is null, please input email.");
+                    return;
+                }
+                if(validateInput!=validateNum){
+                    alert("validateNum is wrong!");
+                    return;
+                }
+                var student={name:username,email:email,grade:grade,password:password,student_number:s_number};
+                $.ajax({
+                    type: "POST",
+                    url: "/mycourse/register",
+                    data:{operation:"register",userType:"student",student:JSON.stringify(student)},
+                    datatype:"text",
+                    success: function(result){
+                        if(result=="register successsfully"){
+                            window.location.href="/mycourse/student/coursingList.html";
+                        }else{
+                            alert(result);
+                        }
+                    }
+                });
+
+            });
+
+            $("#teacherValidateButton").click(function () {
+                var email=$("#inputTeacherEmail").val();
+                if (email == "") {
+                    alert("Email is null, please input email.");
+                    return;
+                }
+                sendValidateEmail(email);
+            });
+
+            $("#registerTeacher").click(function () {
+                var username=$("#inputTeacherName").val();
+                var email=$("#inputTeacherEmail").val();
+                //has checked during validate
+                var password=$("#inputTeacherPassword").val();
+                var validateInput=$("#inputTeacherValidate").val();
+
+                if (username == "") {
+                    alert("Username is null, please input username.");
+                    return;
+                }
+                if (password == "") {
+                    alert("Passowrd is null, please input password.");
+                    return;
+                }
+                if (email == "") {
+                    alert("Email is null, please input email.");
+                    return;
+                }
+                if(validateInput!=validateNum){
+                    alert("validateNum is wrong!");
+                    return;
+                }
+                var teacher={name:username,email:email,password:password};
+                $.ajax({
+                    type: "POST",
+                    url: "/mycourse/register",
+                    data:{operation:"register",userType:"teacher",teacher:JSON.stringify(teacher)},
+                    datatype:"text",
+                    success: function(result){
+                        if(result=="register successsfully"){
+                            window.location.href="/mycourse/teacher/courseList.html";
+                        }else{
+                            alert(result);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+    <style type="text/css">
+        #backDiv{
+            position:absolute;
+            background:url(res/img/background.png);
+            background-repeat: no-repeat;
+            background-size:100% 100%;
+            height: 100%;
+            width:100%;
+        }
+        .studentRegisterDiv{
+            position:absolute;
+            background-color: rgba(243,253,255,0.5);
+            height: 100%;
+            width:100%;
+            border-radius:20px ;
+            border-style: solid;
+            border-color: rgba(243,253,255,0.7);
+        }
+
+        .teacherRegisterDiv{
+            position:absolute;
+            background-color: rgba(243,253,255,0.5);
+            height: 75%;
+            width:100%;
+            margin-top: 17%;
+            border-radius:20px ;
+            border-style: solid;
+            border-color: rgba(243,253,255,0.7);
+        }
+
+        .logInput{
+            width: 75%;
+            margin-left: 13%;
+            margin-top: 5%;
+        }
+    </style>
+</head>
+<body>
+<div id="backDiv">
+    <div id="myNiceCarousel" class="carousel slide" style="height: 60%;width: 30%;margin-top: 17%;margin-left: 10%;" data-ride="carousel">
+            <!-- 圆点指示器 -->
+            <ol class="carousel-indicators" style="width: 60%;">
+                <li data-target="#myNiceCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myNiceCarousel" data-slide-to="1"></li>
+            </ol>
+
+            <!-- 轮播项目 -->
+            <div class="carousel-inner" style="height: 100%;width: 100%;">
+                <div id="studentRegister" class="item active studentRegisterDiv">
+                    <h2 style="text-align: center;color:darkgray">student register</h2>
+                    <div class="input-control has-icon-left logInput" style="margin-top: 5%;">
+                        <input id="inputStudentName" type="text" class="form-control" placeholder="username">
+                        <label for="inputStudentName" class="input-control-icon-left"><i class="icon icon-user "></i></label>
+                    </div>
+                    <div class="input-control has-icon-left logInput">
+                        <input id="inputStudentGrade" type="text" class="form-control" placeholder="grade">
+                        <label for="inputStudentGrade" class="input-control-icon-left"><i class="icon icon-tag"></i></label>
+                    </div>
+                    <div class="input-control has-icon-left logInput" >
+                        <input id="inputStudentNumber" type="text" class="form-control" placeholder="s-number">
+                        <label for="inputStudentNumber" class="input-control-icon-left"><i class="icon icon-flag"></i></label>
+                    </div>
+                    <div class="input-control has-icon-left logInput" >
+                        <input id="inputStudentPassword" type="password" class="form-control"  placeholder="password">
+                        <label for="inputStudentPassword" class="input-control-icon-left"><i class="icon icon-key"></i></label>
+                    </div>
+                    <div class="logInput">
+                        <div style="display: inline">
+                            <div class="input-control has-icon-left" style="width: 70%;float: left;">
+                            <input id="inputStudentEmail" type="email" class="form-control"  placeholder="email">
+                            <label for="inputStudentEmail" class="input-control-icon-left"><i class="icon icon-envelope "></i></label>
+                            </div>
+                            <button id="studentValidateButton" class="btn btn-info" type="button" style="margin-left: 5%;">validate</button>
+                        </div>
+                    </div>
+                    <div class="input-control has-icon-left logInput">
+                        <input id="inputStudentValidate" type="text" class="form-control" placeholder="validator">
+                        <label for="inputStudentValidate" class="input-control-icon-left"><i class="icon icon-edit"></i></label>
+                    </div>
+                    <button id="registerStudent" class="btn" type="button" style="margin-left: 40%;margin-top: 6%;">register</button>
+                </div>
+                <div id="teacherRegister" class="item teacherRegisterDiv">
+                    <h2 style="text-align: center;color:darkgray">teacher register</h2>
+                    <div class="input-control has-icon-left logInput" style="margin-top: 5%;">
+                        <input id="inputTeacherName" type="text" class="form-control" placeholder="username">
+                        <label for="inputTeacherName" class="input-control-icon-left"><i class="icon icon-user "></i></label>
+                    </div>
+                    <div class="input-control has-icon-left logInput">
+                        <input id="inputTeacherPassword" type="password" class="form-control" placeholder="password">
+                        <label for="inputTeacherPassword" class="input-control-icon-left"><i class="icon icon-key"></i></label>
+                    </div>
+                    <div class="logInput">
+                        <div style="display: inline">
+                            <div class="input-control has-icon-left" style="width: 70%;float: left;">
+                                <input id="inputTeacherEmail" type="email" class="form-control"  placeholder="email">
+                                <label for="inputTeacherEmail" class="input-control-icon-left"><i class="icon icon-envelope "></i></label>
+                            </div>
+                            <button id="teacherValidateButton" class="btn btn-info" type="button" style="margin-left: 5%;">validate</button>
+                        </div>
+                    </div>
+                    <div class="input-control has-icon-left logInput">
+                        <input id="inputTeacherValidate" type="text" class="form-control" placeholder="validator">
+                        <label for="inputTeacherValidate" class="input-control-icon-left"><i class="icon icon-edit"></i></label>
+                    </div>
+                    <button id="registerTeacher" class="btn" type="button" style="margin-left: 40%;margin-top: 6%;">register</button>
+                </div>
+            </div>
+        </div>
+</div>
+</body>
+</html>

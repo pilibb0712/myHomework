@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/aop
+      http://www.springframework.org/schema/aop/spring-aop.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context.xsd
+      http://www.springframework.org/schema/tx
+      http://www.springframework.org/schema/tx/spring-tx.xsd
+     ">
+    <!-- <bean id="..." class="..."> collaborators and configuration for this
+        bean go here </bean> <bean id="..." class="..."> collaborators and configuration
+        for this bean go here </bean> more bean definitions go here -->
+
+    <context:annotation-config />
+    <context:component-scan base-package="serviceImpl" />
+
+    <bean id="AdminStatsService" class="serviceImpl.AdminStatsServiceImpl">
+    </bean>
+    <bean id="CourseService" class="serviceImpl.CourseServiceImpl">
+    </bean>
+    <bean id="CoursewareService" class="serviceImpl.CoursewareServiceImpl">
+    </bean>
+    <bean id="CourseworkService" class="serviceImpl.CourseworkServiceImpl">
+    </bean>
+    <bean id="CoursingService" class="serviceImpl.CoursingServiceImpl">
+    </bean>
+    <bean id="EmailService" class="serviceImpl.EmailServiceImpl">
+    </bean>
+    <bean id="PostService" class="serviceImpl.PostServiceImpl">
+    </bean>
+    <bean id="StudentStatsService" class="serviceImpl.StudentStatsServiceImpl">
+    </bean>
+    <bean id="TakeCoursingService" class="serviceImpl.TakeCoursingServiceImpl">
+    </bean>
+    <bean id="TeacherStatsService" class="serviceImpl.TeacherStatsServiceImpl">
+    </bean>
+    <bean id="UserInfoService" class="serviceImpl.UserInfoServiceImpl">
+    </bean>
+
+
+</beans>

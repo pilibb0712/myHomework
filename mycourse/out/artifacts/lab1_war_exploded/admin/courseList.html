@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>course list</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../res/css/nav.css">
+    <link rel="stylesheet" type=text/css href="../zui-1.8.1-dist/dist/css/zui.min.css" charset="UTF-8">
+    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.css">
+    <script type="text/javascript" src="../zui-1.8.1-dist/dist/lib/jquery/jquery.js"></script>
+    <script src="../bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+    <script src="../zui-1.8.1-dist/dist/js/zui.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $.ajax({
+                type: "POST",                           //传数据的方式
+                url: "/mycourse/courseList", //servlet地址
+                data: {operationType:"getAllCourse"},//传的数据
+                datatype: "json",
+                success:function (result) {
+                    var res=JSON.parse(result);
+                    $.each(res,function (i,course) {
+                        var id=course.id;
+                        var name=course.name;
+                        var content=course.content;
+                        var checked=course.checked;
+                        var icon="";
+                        if(checked){
+                            icon="icon-check";
+                        }else{
+                            icon="icon-history";
+                        }
+                        var text1=" <div class=\"item\">\n" +
+                            "                <div class=\"item-heading\">\n" +
+                            "                    <h2  style=\"display: inline;\"><a href=\"javascript:void(0)\" onclick=\"viewCourse('";
+                        //id
+                        var text2="')\">"
+                        //name
+                        var text3="</a></h2>\n" +
+                            "<i class=\"icon ";
+                        //check-icon
+                        var text4="\" style=\"margin-left:2%;\"></i>\n" +
+                            "                </div>\n" +
+                            "                <div class=\"item-content\" style=\"font-size: 15px;\">\n" +
+                            "                    <div class=\"text\">";
+                        //content
+                        var text5="</div>\n" +
+                            "                </div>";
+                        $("#coursesListDiv").append(text1+id+text2+name+text3+icon+text4+content+text5);
+                    });
+                }
+            });
+        });
+        function viewCourse(cid) {
+            $.ajax({
+                type: "POST",                           //传数据的方式
+                url: "/mycourse/course", //servlet地址
+                data: {operationType:"setCourseId",courseId:cid},//传的数据
+                datatype: "text",
+                success:function (result) {
+                    window.location.href="/mycourse/admin/course.html";
+                }
+            });
+        }
+    </script>
+
+    <style type="text/css">
+        #backDiv{
+            position:absolute;
+            background:url(../res/img/background2.png);
+            background-repeat: no-repeat;
+            background-size:100% 100%;
+            height: 100%;
+            width:100%;
+        }
+        #coursesBackDiv{
+            margin-top: 4%;
+            margin-left: 16%;
+            height: 85%;
+            width: 46%;
+            background:rgba(255,255,255,0.8);
+            border-radius:10px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="backDiv">
+    <div class="leftNav-item" style="height: 60%;width: 15%;margin-top: 3%;">
+        <ul>
+            <li style="margin-top: 25px;margin-left: 40px;">
+                <i class="icon icon-book icon-3x"></i>
+                <a href="/mycourse/admin/courseList.html" class="rota">Course</a>
+            </li>
+            <li style="margin-top: 25px;margin-left: 40px;">
+                <i class="icon icon-bookmark icon-5x"></i>
+                <a href="/mycourse/admin/coursingList.html" class="rota">Coursing</a>
+            </li>
+            <li style="margin-top: 25px;margin-left: 40px;">
+                <i class="icon icon-bar-chart icon-5x"></i>
+                <a href="/mycourse/admin/adminStats.html" class="rota">Statistics</a>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div id="coursesBackDiv" class="list">
+        <h-eader style="display: inline;">
+            <h1><i class="icon-list-ul"></i> courses </h1>
+        </h-eader>
+        <div id="coursesListDiv" class="items items-hover scrollbar-hover" style="margin-top: 2%;height: 92%;overflow: scroll;">
+        </div>
+    </div>
+</div>
+</body>
+</html>
