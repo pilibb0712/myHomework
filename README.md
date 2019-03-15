@@ -3,7 +3,9 @@
 
 lightSalesSystem：
 <br>
-软工二大作业 灯具进销存系统
+软工二大作业 
+<br>
+一个完整的灯具进销存系统
 <br>
 javafx+rmi+seriable
 <br>
