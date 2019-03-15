@@ -8,6 +8,15 @@ lightSalesSystem：
 javafx+rmi+seriable
 <br>
 <br>
+MyCompilor:
+<br>
+软工一大作业
+<br>
+一个BF和OOK语言的miniIDE 底层还是java分析
+<br>
+原生java socket
+<br>
+<br>
 compile theory:
 <br>
 编译原理作业
