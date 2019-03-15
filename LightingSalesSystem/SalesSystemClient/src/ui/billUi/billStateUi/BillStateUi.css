@@ -1,0 +1,84 @@
+.background{
+	-fx-background-image:url('../../../resource/systemImage/billStateUiImages/background.jpg') ;
+}
+
+.buttons{
+	-fx-background-color: 
+        linear-gradient(#f2f2f2, #d6d6d6),
+        linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),
+        linear-gradient(#dddddd 0%, #f6f6f6 50%);
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( gaussian , white , 10, 0 , 0 , 5 );
+}
+
+.buttons:hover{
+	 -fx-background-color: 
+        linear-gradient(#f2f2f2, #f6f6f6),
+        linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),
+    	linear-gradient(#f2f2f2 0%, #f6f6f6 50%);
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( gaussian , white , 10, 0 , 0 , 5 );
+}
+
+.buttons:pressed{
+	-fx-background-color: 
+        linear-gradient(#f2f2f2, #d6d6d6),
+        linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),
+        linear-gradient(#dddddd 0%, #f6f6f6 50%);
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( gaussian , white , 10, 0 , 0 , 5 );
+}
+
+.back-buttons{
+	-fx-background-color: 
+        linear-gradient(#f2f2f2, #d6d6d6),
+        linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),
+        linear-gradient(#dddddd 0%, #f6f6f6 50%);
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( gaussian , white , 10, 0 , 0 , 5 );
+}
+
+.back-buttons:hover{
+	 -fx-background-color: 
+        linear-gradient(#f2f2f2, #f6f6f6),
+        linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),
+    	linear-gradient(#f2f2f2 0%, #f6f6f6 50%);
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( gaussian , white , 10, 0 , 0 , 5 );
+}
+
+.back-buttons:pressed{
+	-fx-background-color: 
+        linear-gradient(#f2f2f2, #d6d6d6),
+        linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),
+        linear-gradient(#dddddd 0%, #f6f6f6 50%);
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( gaussian , white , 10, 0 , 0 , 5 );
+}
+
+.back-buttons, .back-buttons:hover, .back-buttons:pressed{
+	-fx-background-radius:90;
+	-fx-border-radius:90;
+}
+
+.back-buttons, .back-buttons:pressed{
+	-fx-background-image:url('../../../resource/systemImage/sharedImages/backButtonIcon.png') ;
+	-fx-background-repeat: no-repeat;
+}
+
+.back-buttons:hover{
+	-fx-background-image:url('../../../resource/systemImage/sharedImages/backButtonHoverIcon.png') ;
+	-fx-background-repeat: no-repeat;
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane id="bottom-BorderPane" prefHeight="786.0" prefWidth="1366.0" stylesheets="@FinanceStaffMainUi.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.mainUi.financialStaffMainUi.FinancialStaffMainUiController">
+   <top>
+      <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0" stylesheets="@FinanceStaffMainUi.css" BorderPane.alignment="CENTER_LEFT">
+         <children>
+            <Text fx:id="userNameTag" fill="#f8f6f6" strokeType="OUTSIDE" strokeWidth="0.0" text="username" textAlignment="CENTER" wrappingWidth="194.240234375">
+               <font>
+                  <Font size="39.0" />
+               </font>
+            </Text>
+            <Text fx:id="userIdTag" fill="#f8f8f8" strokeType="OUTSIDE" strokeWidth="0.0" text="user Id" textAlignment="CENTER" wrappingWidth="227.09375">
+               <font>
+                  <Font size="39.0" />
+               </font>
+            </Text>
+         </children>
+         <padding>
+            <Insets left="70.0" />
+         </padding>
+      </HBox>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="bankAccountButton" layoutX="74.0" layoutY="104.0" mnemonicParsing="false" onMouseClicked="#bankAccountButtonListener" prefHeight="60.0" prefWidth="150.0" stylesheets="@FinanceStaffMainUi.css" text="银行账户管理" />
+            <Button fx:id="newRecietBillButton" layoutX="683.0" layoutY="204.0" mnemonicParsing="false" onMouseClicked="#newRecieptBillButtonListener" prefHeight="60.0" prefWidth="150.0" text="新建收款单" />
+            <Button fx:id="newPaymentBillButton" layoutX="630.0" layoutY="93.0" mnemonicParsing="false" onMouseClicked="#newPaymentBillButtonListener" prefHeight="60.0" prefWidth="150.0" stylesheets="@FinanceStaffMainUi.css" text="新建付款单" />
+            <Button fx:id="newCashExpenseBillButton" layoutX="437.0" layoutY="130.0" mnemonicParsing="false" onMouseClicked="#newCashExpenseBillButtonListener" prefHeight="60.0" prefWidth="150.0" stylesheets="@FinanceStaffMainUi.css" text="新建现金费用单" />
+            <Button fx:id="salesDetailsListButton" layoutX="186.0" layoutY="406.0" mnemonicParsing="false" onMouseClicked="#salesDetailsListButtonListener" prefHeight="60.0" prefWidth="150.0" text="销售明细表" />
+            <Button fx:id="businessProcessListButton" layoutX="608.0" layoutY="426.0" mnemonicParsing="false" onMouseClicked="#businessProcessListButtonListener" prefHeight="60.0" prefWidth="150.0" text="经营历程表" />
+            <Button fx:id="billStateButton" layoutX="1067.0" layoutY="147.0" mnemonicParsing="false" onMouseClicked="#billStateButtonListener" prefHeight="60.0" prefWidth="150.0" stylesheets="@FinanceStaffMainUi.css" text="查看单据" />
+            <Button fx:id="businessConditionListButton" layoutX="818.0" layoutY="506.0" mnemonicParsing="false" onMouseClicked="#businessConditionListButtonListener" prefHeight="60.0" prefWidth="150.0" styleClass="usercase-buttons" text="经营情况表" />
+            <Button fx:id="inOutsButton" layoutX="1035.0" layoutY="396.0" mnemonicParsing="false" onMouseClicked="#inOutsButtonListener" prefHeight="60.0" prefWidth="150.0" text="账单管理" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="786.0" prefWidth="1366.0" styleClass="inout-background" stylesheets="@FinanceUi.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financeUi.InOutUiController">
+   <left>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="586.0" prefViewportHeight="672.0" prefViewportWidth="200.0" prefWidth="182.0">
+         <content>
+            <ListView fx:id="inOutList" prefHeight="671.0" prefWidth="179.0" BorderPane.alignment="CENTER" />
+         </content>
+         <BorderPane.margin>
+            <Insets bottom="50.0" left="50.0" top="20.0" />
+         </BorderPane.margin>
+      </ScrollPane>
+   </left>
+   <center>
+      <TableView fx:id="detailsTable" prefHeight="586.0" prefWidth="612.0" BorderPane.alignment="CENTER">
+        <columns>
+            <TableColumn prefWidth="75.0" text="账单明细">
+               <columns>
+                  <TableColumn fx:id="dateColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="111.0" text="日期" />
+                <TableColumn fx:id="eventColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="153.0" text="事项" />
+                <TableColumn fx:id="balanceColumn" minWidth="-Infinity" prefWidth="127.0" text="收支" />
+               </columns>
+            </TableColumn>
+        </columns>
+         <BorderPane.margin>
+            <Insets bottom="50.0" top="20.0" />
+         </BorderPane.margin>
+      </TableView>
+   </center>
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="130.0" prefWidth="1366.0" spacing="100.0" stylesheets="@FinanceUi.css" BorderPane.alignment="CENTER">
+         <children>
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#backButtonListener" prefHeight="80.0" prefWidth="80.0" styleClass="back-buttons">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="历年账单" textAlignment="CENTER" wrappingWidth="730.0" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="49.0" />
+               </font>
+            </Text>
+            <Button fx:id="newInOutButton" mnemonicParsing="false" onMouseClicked="#newInOutButtonListener" styleClass="buttons" text="新建账单">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <right>
+      <VBox prefHeight="656.0" prefWidth="691.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="50.0" right="50.0" top="20.0" />
+         </BorderPane.margin>
+         <children>
+            <TableView fx:id="commodityInfoTable" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn prefWidth="688.0" text="期初信息">
+                     <columns>
+                      <TableColumn prefWidth="685.0" text="商品信息">
+                           <columns>
+                              <TableColumn fx:id="commodityClassColumn" prefWidth="110.0" text="商品分类" />
+                              <TableColumn fx:id="commodityNameColumn" prefWidth="126.0" text="商品名称" />
+                              <TableColumn fx:id="commodityTypeColumn" prefWidth="133.0" text="型号" />
+                              <TableColumn fx:id="purchasePriceColumn" prefWidth="79.0" text="进价" />
+                              <TableColumn fx:id="sellingPriceColumn" prefWidth="87.0" text="售价" />
+                              <TableColumn fx:id="recentPurchsePriceColumn" prefWidth="76.0" text="最近进价" />
+                              <TableColumn fx:id="recentSellingPriceColumn" prefWidth="78.0" text="最近售价" />
+                           </columns>
+                        </TableColumn>
+                     </columns>
+                  </TableColumn>
+              </columns>
+            </TableView>
+            <TableView fx:id="customerInfoTable" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn prefWidth="690.0" text="客户信息">
+                     <columns>
+                      <TableColumn fx:id="customerClassColumn" prefWidth="116.0" text="客户分类" />
+                        <TableColumn fx:id="customerNameColumn" minWidth="0.0" prefWidth="115.0" text="客户姓名" />
+                        <TableColumn fx:id="customerContactColumn" minWidth="6.0" prefWidth="183.0" text="联系方式" />
+                        <TableColumn fx:id="customerReceiveColumn" prefWidth="128.0" text="应收金额" />
+                        <TableColumn fx:id="customerPaymentColumn" minWidth="0.0" prefWidth="142.0" text="应付金额" />
+                     </columns>
+                  </TableColumn>
+              </columns>
+            </TableView>
+            <TableView fx:id="bankAccountInfoTable" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn prefWidth="690.0" text="银行账户信息">
+                     <columns>
+                      <TableColumn fx:id="bankAccountNameColumn" prefWidth="344.0" text="账户名称" />
+                        <TableColumn fx:id="bankAccountSumColumn" prefWidth="344.0" text="帐户余额" />
+                     </columns>
+                  </TableColumn>
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>

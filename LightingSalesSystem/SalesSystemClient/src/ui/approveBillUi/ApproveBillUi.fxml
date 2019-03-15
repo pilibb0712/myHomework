@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="borderPane" prefHeight="786.0" prefWidth="1366.0" styleClass="BorderPane" stylesheets="@ApproveBillUi.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.approveBillUi.ApproveBillUiController">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="600.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#returnButtonListener" prefHeight="36.0" prefWidth="57.0" styleClass="back-buttons" text="返回" />
+            <Text fx:id="billCategoryText" strokeType="OUTSIDE" strokeWidth="0.0" text="单据" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="55.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <MenuBar prefHeight="32.0" prefWidth="149.0" styleClass="menuItems" BorderPane.alignment="TOP_LEFT">
+        <menus>
+          <Menu mnemonicParsing="false" text="    单据类型">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#giftBillMenuItemListener" text="库存赠送单" />
+              <MenuItem mnemonicParsing="false" onAction="#inventoryWarningBillMenuItemListener" text="库存报警单" />
+                  <MenuItem mnemonicParsing="false" onAction="#inventoryLossBillMenuItemListener" text="库存报损单" />
+                  <MenuItem mnemonicParsing="false" onAction="#inventoryOverBillMenuItemListener" text="库存报溢单" />
+                  <MenuItem mnemonicParsing="false" onAction="#purchaseBillMenuItemListener" text="进货单" />
+                  <MenuItem mnemonicParsing="false" onAction="#purchaseReturnBillMenuItemListener" text="进货退货单" />
+                  <MenuItem mnemonicParsing="false" onAction="#salesBillMenuItemListener" text="销售单" />
+                  <MenuItem mnemonicParsing="false" onAction="#salesReturnBillMenuItemListener" text="销售退货单" />
+                  <MenuItem mnemonicParsing="false" onAction="#cashExpenseBillMenuItemListener" text="现金费用单" />
+                  <MenuItem mnemonicParsing="false" onAction="#receiptBillMenuItemListener" text="收款单" />
+                  <MenuItem mnemonicParsing="false" onAction="#paymentBillMenuItemListener" text="付款单" />
+            </items>
+          </Menu>
+        </menus>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </MenuBar>
+   </left>
+   <right>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>

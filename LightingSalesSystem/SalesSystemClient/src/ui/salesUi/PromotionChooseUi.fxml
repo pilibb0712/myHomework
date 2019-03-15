@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.salesUi.PromotionUiController">
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="94.0" prefWidth="156.0" />
+            <Label prefHeight="94.0" prefWidth="215.0" text="最佳促销策略">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <GridPane fx:id="pane" BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="totalStrategyDiscountLabel" text="折让值1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="totalStrategyCouponLabel" text="代金券1" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="totalStrategyGiftLabel" text="赠品价值1" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label fx:id="totalStrategyAllLabel" text="总优惠1" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Button fx:id="totalStrategyButton" mnemonicParsing="false" onAction="#totalButtonListener" text="选择" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Label fx:id="userStrategyDiscountLabel" text="折让值2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="userStrategyCouponLabel" text="代金券2" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label fx:id="userStrategyGiftLabel" text="赠品价值2" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Label fx:id="userStrategyAllLabel" text="总优惠2" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Button fx:id="userStrategyButton" mnemonicParsing="false" onAction="#userButtonListener" text="选择" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <Label fx:id="comboStrategyDiscountLabel" text="折让值3" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="comboStrategyAllLabel" text="总优惠3" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Button fx:id="comboStrategyButton" mnemonicParsing="false" onAction="#comboButtonListener" text="选择" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <Label text="TotalStragety" GridPane.rowIndex="1" />
+            <Label text="UserStragety" GridPane.rowIndex="2" />
+            <Label text="ComboStragety" GridPane.rowIndex="3" />
+            <Label text="折让值(discount)" GridPane.columnIndex="1" />
+            <Label text="代金券(coupon)" GridPane.columnIndex="2" />
+            <Label text="赠品(gift)" GridPane.columnIndex="3" />
+            <Label text="优惠合计(total)" GridPane.columnIndex="4" />
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>

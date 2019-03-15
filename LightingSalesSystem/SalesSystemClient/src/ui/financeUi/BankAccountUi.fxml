@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane id="bank-account-background" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="786.0" prefWidth="1366.0" stylesheets="@FinanceUi.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financeUi.BankAccountUiController">
+   <top>
+      <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="150.0" prefWidth="200.0" spacing="100.0" BorderPane.alignment="BOTTOM_CENTER">
+         <children>
+            <Button fx:id="backButton" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#backButtonListener" prefHeight="80.0" prefWidth="80.0" styleClass="back-buttons">
+               <HBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="银行账户" textAlignment="RIGHT" wrappingWidth="682.240234375" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets left="100.0" top="50.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+   </top>
+   <right>
+      <VBox maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" spacing="30.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="65.0" prefWidth="360.0" spacing="30.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="账户名称" wrappingWidth="85.0">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="accountNameTextField" prefHeight="41.0" prefWidth="176.0" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="56.0" prefWidth="360.0" spacing="30.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="账户余额">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="remainingSumTextField" prefHeight="39.0" prefWidth="181.0" />
+               </children>
+            </HBox>
+            <Text fx:id="errorPrompt" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="350.240234375">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <Button fx:id="newAccountButton" mnemonicParsing="false" onMouseClicked="#newAccountButtonListener" prefHeight="65.0" prefWidth="189.0" styleClass="buttons" text="新建银行账户">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="80.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="deleteAccountButton" mnemonicParsing="false" onMouseClicked="#deleteAccountsButtonListener" prefHeight="65.0" prefWidth="189.0" styleClass="buttons" text="删除银行账户" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="80.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" top="70.0" />
+         </padding>
+      </VBox>
+   </right>
+   <left>
+      <Pane maxWidth="-Infinity" minWidth="-Infinity" prefWidth="444.0" BorderPane.alignment="CENTER" />
+   </left>
+   <bottom>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <TableView fx:id="bankAccountList" editable="true" fixedCellSize="20.0" prefHeight="635.0" prefWidth="564.0" stylesheets="@FinanceUi.css" BorderPane.alignment="CENTER">
+        <columns>
+            <TableColumn fx:id="checkBoxColumn" prefWidth="109.0" resizable="false" text="选择" />
+          <TableColumn fx:id="accountNameColumn" onEditCommit="#modifyAccountNameListener" prefWidth="221.0" text="账户名称" />
+          <TableColumn fx:id="remainingSumColumn" editable="false" prefWidth="190.0" text="账户余额" />
+        </columns>
+      </TableView>
+   </center>
+</BorderPane>

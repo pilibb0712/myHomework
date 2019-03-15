@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<GridPane fx:id="backgroundPane"
+fx:controller="ui.commodityUi.ClassificationInforUiController"
+xmlns:fx="http://javafx.com/fxml"
+stylesheets="@CSS1.css"
+alignment="center"
+hgap="40"
+vgap="40"
+>
+<padding>
+<Insets top="25" bottom="25" right="25" left="25"/>
+</padding>
+<Text fx:id="inforLabel"
+      text="类别信息"
+      GridPane.rowIndex="0" GridPane.columnIndex="0"
+>
+<font>
+<Font size="35.0" />
+</font>
+</Text>
+<Text fx:id="classificationID"
+      GridPane.rowIndex="1" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="classificationName"
+      GridPane.rowIndex="2" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="fatherClassification"
+      GridPane.rowIndex="3" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="sonClassificationListLabel"
+      text="子类别列表:"
+      GridPane.rowIndex="4" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="goodsListLabel"
+      text="子商品列表:"
+      GridPane.rowIndex="4" GridPane.columnIndex="1"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<ScrollPane
+GridPane.rowIndex="5" GridPane.columnIndex="0"
+styleClass="scrollpane"
+ >
+<padding>
+<Insets top="0" bottom="0" right="0" left="0"/>
+</padding>
+<HBox fx:id="sonClassificationInfor"
+opacity="1"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="20"
+>
+<VBox fx:id="sonClassificationID"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="20">
+</VBox>
+<VBox fx:id="sonClassificationName"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="20">
+</VBox>
+</HBox>
+</ScrollPane>
+<ScrollPane
+styleClass="scrollpane"
+ GridPane.rowIndex="5" GridPane.columnIndex="1">
+ <padding>
+<Insets top="0" bottom="0" right="0" left="0"/>
+</padding>
+<HBox  fx:id="sonGoodsInfor"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="20"
+>
+<VBox fx:id="sonGoodsID"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="20">
+</VBox>
+<VBox fx:id="sonGoodsName"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="20">
+</VBox>
+<VBox fx:id="sonGoodsType"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="20">
+</VBox>
+</HBox>
+</ScrollPane>
+<Button fx:id="addClassification"
+        text="增加新的子类别"
+        onAction="#initAddClassificationUi"
+        GridPane.rowIndex="6" GridPane.columnIndex="0"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+<Button fx:id="deleteClassification"
+        text="删除该类别"
+        onAction="#deleteClassification"
+        GridPane.rowIndex="6" GridPane.columnIndex="1"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+<Button fx:id="modifyClassification"
+        text="修改该类别"
+        onAction="#initModifyClassificationUi"
+        GridPane.rowIndex="6" GridPane.columnIndex="2"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+<Button fx:id="confirmClassification"
+        text="确认"
+        onAction="#confirmClassification"
+        GridPane.rowIndex="6" GridPane.columnIndex="3"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+</GridPane>

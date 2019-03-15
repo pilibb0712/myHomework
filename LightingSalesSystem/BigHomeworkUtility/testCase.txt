@@ -1,0 +1,14 @@
+|测试用例ID|条件|期望结果|测试结果|测试对象ID|   
+| :--- | :--- | :--- | :--- | :--- |   
+ | T140000 | 无 | Manager | Manager | T1400 |    
+ | T140100 | 无 | Admin | Admin | T1401 |    
+ | T140200 | 无 | Finance | Finance | T1402 |    
+ | T140300 | 无 | SalesMan | SalesMan | T1403 |    
+ | T140400 | 无 | WareKeeper | WareKeeper | T1404 |    
+|测试用例ID|条件|期望结果|测试结果|测试对象ID|   
+| :--- | :--- | :--- | :--- | :--- |   
+ | T140600 | name = "张傲" | 张傲 | 张傲 | T1406 |    
+ | T140601 | name = "张贝贝" | 张贝贝 | 张贝贝 | T1406 |    
+ | T140602 | name = "王宁一" | 王宁一 | 王宁一 | T1406 |    
+ | T140603 | name = "rhweuifhiweu" | null | null | T1406 |    
+ | T140604 | name = "" | null | null | T1406 |    

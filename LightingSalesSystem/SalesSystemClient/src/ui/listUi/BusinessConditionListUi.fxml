@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane id="business-condition-list-background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="786.0" prefWidth="1366.0" stylesheets="@ListUi.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.listUi.BusinessConditionListUiController">
+   <center>
+      <TableView fx:id="conditionTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn editable="false" prefWidth="683.0" text="收入">
+               <columns>
+                  <TableColumn fx:id="salesEarningColumn" prefWidth="173.0" text="销售收入" />
+                  <TableColumn prefWidth="500.0" text="商品类收入">
+                     <columns>
+                        <TableColumn fx:id="inventoryOverEarningColumn" prefWidth="135.0" text="商品报溢收入" />
+                        <TableColumn fx:id="costAdjustEarningColumn" prefWidth="124.0" text="成本调价收入" />
+                        <TableColumn fx:id="purchaseReturnGapColumn" prefWidth="129.0" text="退货进货差价" />
+                        <TableColumn fx:id="couponGapColumn" prefWidth="137.0" text="代金券差额" />
+                     </columns>
+                  </TableColumn>
+               </columns>
+            </TableColumn>
+          <TableColumn minWidth="606.0" prefWidth="667.0" text="支出">
+               <columns>
+                  <TableColumn fx:id="salesCostColumn" prefWidth="173.0" text="销售成本" />
+                  <TableColumn prefWidth="493.0" text="商品类支出">
+                     <columns>
+                        <TableColumn fx:id="inventoryLossCostColumn" prefWidth="250.0" text="商品报损" />
+                        <TableColumn fx:id="giftCostColumn" prefWidth="243.0" text="商品赠出" />
+                     </columns>
+                  </TableColumn>
+               </columns>
+            </TableColumn>
+        </columns>
+      </TableView>
+   </center>
+   <bottom>
+      <HBox alignment="TOP_CENTER" prefHeight="123.0" prefWidth="1366.0" spacing="30.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="折让后总收入：" wrappingWidth="166.0">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+            <Text fx:id="afterAllowanceEarningText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="144.0">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="折让金额：">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+            <Text fx:id="allowanceAmountText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="144.0">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="总支出：" wrappingWidth="98.0">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+            <Text fx:id="totalExpenseText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="144.0">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="利润：">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+            <Text fx:id="profitText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="144.0">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets top="30.0" />
+         </padding>
+      </HBox>
+   </bottom>
+   <top>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#backButtonListener" prefHeight="80.0" prefWidth="80.0" styleClass="back-buttons" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="经营情况表" wrappingWidth="775.0">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Text>
+            <Button mnemonicParsing="false" onMouseClicked="#exportButtonListener" prefHeight="53.0" prefWidth="139.0" text="导出">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

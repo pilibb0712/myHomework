@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="786.0" prefWidth="1366.0" styleClass="inout-background" stylesheets="@FinanceUi.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financeUi.NewInOutUiController">
+   <top>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="期初建账" BorderPane.alignment="CENTER_LEFT">
+         <font>
+            <Font size="47.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets left="250.0" top="40.0" />
+         </BorderPane.margin>
+      </Text>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="50.0" left="50.0" right="20.0" top="20.0" />
+         </BorderPane.margin>
+         <children>
+            <TableView fx:id="commodityInfoTable" editable="true" prefHeight="217.0" prefWidth="965.0">
+              <columns>
+                <TableColumn prefWidth="803.0" text="商品信息">
+                     <columns>
+                        <TableColumn fx:id="commodityClassColumn" onEditCommit="#commodityClassColumnOnEditCommit" prefWidth="162.0" text="商品分类" />
+                      <TableColumn fx:id="commodityNameColumn" onEditCommit="#commodityNameColumnOnEditCommit" prefWidth="185.0" text="商品名称" />
+                        <TableColumn fx:id="commodityTypeColumn" onEditCommit="#commodityTypeColumnOnEditCommit" prefWidth="192.0" text="型号" />
+                        <TableColumn fx:id="purchasePriceColumn" onEditCommit="#purchasePriceColumnOnEditCommit" prefWidth="135.0" text="进价" />
+                        <TableColumn fx:id="sellingPriceColumn" onEditCommit="#sellingPriceColumnOnEditCommit" prefWidth="116.0" text="售价" />
+                        <TableColumn fx:id="recentPurchsePriceColumn" onEditCommit="#recentPurchasePriceColumnOnEditCommit" prefWidth="90.0" text="最近进价" />
+                        <TableColumn fx:id="recentSellingPriceColumn" onEditCommit="#recentSellingPriceColumnOnEditCommit" prefWidth="84.0" text="最近售价" />
+                     </columns>
+                  </TableColumn>
+              </columns>
+            </TableView>
+            <TableView fx:id="customerInfoTable" editable="true" prefHeight="219.0" prefWidth="965.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="客户信息">
+                     <columns>
+                      <TableColumn fx:id="customerClassColumn" onEditCommit="#customerClassColumnOnEditCommit" prefWidth="158.0" text="客户分类" />
+                        <TableColumn fx:id="customerNameColumn" onEditCommit="#customerNameColumnOnEditCommit" prefWidth="181.0" text="客户姓名" />
+                        <TableColumn fx:id="customerContactColumn" onEditCommit="#customerContactColumnOnEditCommit" prefWidth="285.0" text="联系方式" />
+                        <TableColumn fx:id="customerReceiveColumn" onEditCommit="#customerReceiveColumnOnEditCommit" prefWidth="168.0" text="应收金额" />
+                        <TableColumn fx:id="customerPaymentColumn" onEditCommit="#customerPaymentColumnOnEditCommit" prefWidth="172.0" text="应付金额" />
+                     </columns>
+                  </TableColumn>
+              </columns>
+            </TableView>
+            <TableView fx:id="bankAccountInfoTable" editable="true" prefHeight="221.0" prefWidth="965.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="银行账户信息">
+                     <columns>
+                      <TableColumn fx:id="bankAccountNameColumn" onEditCommit="#bankAccountNameColumnOnEditCommit" prefWidth="481.0" text="账户名称" />
+                        <TableColumn fx:id="bankAccountSumColumn" onEditCommit="#bankAccountSumColumnOnEditCommit" prefWidth="484.0" text="账户余额" />
+                     </columns>
+                  </TableColumn>
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+   <right>
+      <VBox alignment="TOP_CENTER" prefHeight="689.0" prefWidth="281.0" spacing="70.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="50.0" right="50.0" top="20.0" />
+         </BorderPane.margin>
+         <children>
+            <VBox prefHeight="124.0" prefWidth="221.0" spacing="20.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="账单年份">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="yearTextField" prefHeight="44.0" prefWidth="229.0" />
+               </children>
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </VBox.margin>
+            </VBox>
+            <Button fx:id="okButton" mnemonicParsing="false" onMouseClicked="#okButtonListener" prefHeight="57.0" prefWidth="219.0" styleClass="buttons" text="确定">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Button>
+            <Button fx:id="returnButton" mnemonicParsing="false" onMouseClicked="#returnButtonListener" prefHeight="62.0" prefWidth="220.0" styleClass="buttons" text="返回">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets top="50.0" />
+         </padding>
+      </VBox>
+   </right>
+</BorderPane>

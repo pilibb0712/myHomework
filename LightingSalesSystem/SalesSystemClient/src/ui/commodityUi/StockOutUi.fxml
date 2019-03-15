@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<GridPane fx:id="backgroundPane"
+stylesheets="@CSS1.css"
+fx:controller="ui.commodityUi.StockOutUiController"
+xmlns:fx="http://javafx.com/fxml"
+alignment="center"
+hgap="20"
+vgap="20"
+>
+<padding>
+<Insets top="25" bottom="25" right="25" left="25"/>
+</padding>
+<Text fx:id="stockOutLabel"
+      text="                      商品出库"
+      GridPane.rowIndex="0" GridPane.columnIndex="0"
+>
+<font>
+<Font size="35.0" />
+</font>
+</Text>
+<Text fx:id="goodsInforLabel"
+text="商品信息"
+GridPane.rowIndex="1" GridPane.columnIndex="0"
+>
+<font>
+<Font size="25.0" />
+</font>
+</Text>
+<Text fx:id="goodsNameOfStock"
+text="goodsName"
+GridPane.rowIndex="2" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="goodsIDOfStock"
+text="goodsID"
+GridPane.rowIndex="2" GridPane.columnIndex="1"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="classificationOfStock"
+text="classification"
+GridPane.rowIndex="3" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="typeOfStock"
+text="type"
+GridPane.rowIndex="3" GridPane.columnIndex="1"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="amountOfStock"
+text="amount"
+GridPane.rowIndex="4" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="costPriceOfStock"
+text="costPrice"
+GridPane.rowIndex="4" GridPane.columnIndex="1"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="sellingPriceOfStock"
+text="sellingPrice"
+GridPane.rowIndex="5" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="currentCostPriceOfStock"
+text="currentCostPrice"
+GridPane.rowIndex="5" GridPane.columnIndex="1"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="currentSellingPriceOfStock"
+text="currentSellingPrice"
+GridPane.rowIndex="6" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+
+<Text fx:id="stockAmountLabel"
+text="出库数量:"
+GridPane.rowIndex="7" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<TextField fx:id="stockAmount"
+GridPane.rowIndex="7" GridPane.columnIndex="1"
+>
+<font>
+<Font size="20.0" />
+</font>
+</TextField>
+<Text fx:id="productionDateLabel"
+text="出厂日期:"
+GridPane.rowIndex="8" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<TextField fx:id="productionDateOfStock"
+PromptText="无  (yyyy-mm-dd)"
+GridPane.rowIndex="8" GridPane.columnIndex="1"
+>
+<font>
+<Font size="20.0" />
+</font>
+</TextField>
+<Text fx:id="currentSellingPriceLabel"
+text="最近零售价:"
+GridPane.rowIndex="9" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<TextField fx:id="inputCurrentSellingPriceOfStock"
+GridPane.rowIndex="9" GridPane.columnIndex="1"
+>
+<font>
+<Font size="20.0" />
+</font>
+</TextField>
+<Button fx:id="confirm"
+        onAction="#confirmStocKOut"
+        text="确认出库"
+        GridPane.rowIndex="10" GridPane.columnIndex="1"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+<Button fx:id="cancel"
+        onAction="#cancelStockOut"
+        text="取消出库"
+        GridPane.rowIndex="10" GridPane.columnIndex="2"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+<Button fx:id="obsolete"
+        onAction="#obsoleteTheGoods"
+        text="删除商品"
+        GridPane.rowIndex="10" GridPane.columnIndex="0"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+</GridPane>

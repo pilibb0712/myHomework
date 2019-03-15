@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="786.0" prefWidth="1366.0" styleClass="BorderPane" stylesheets="@AddPromotionUi.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.promotionUi.addPromotionUi.AddComboPromotionUiController">
+   <center>
+      <ScrollPane BorderPane.alignment="CENTER">
+         <content>
+            <FlowPane columnHalignment="CENTER" maxWidth="-Infinity" prefHeight="770.0" prefWidth="749.0" vgap="40.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="755.0" spacing="50.0">
+                     <children>
+                        <Label text="开始日期： ">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="479.0" spacing="10.0">
+                           <children>
+                              <TextField fx:id="startYearTextField" prefHeight="30.0" prefWidth="72.0" promptText="2017" />
+                              <Label prefHeight="32.0" prefWidth="29.0" text="年">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="startMonthTextField" layoutX="66.0" layoutY="30.0" prefHeight="30.0" prefWidth="62.0" promptText="12" />
+                              <Label layoutX="82.0" layoutY="29.0" prefHeight="32.0" prefWidth="27.0" text="月">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="startDayTextField" layoutX="110.0" layoutY="30.0" prefHeight="30.0" prefWidth="42.0" promptText="19" />
+                              <Label layoutX="124.0" layoutY="29.0" prefHeight="32.0" prefWidth="49.0" text="日">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Text fx:id="startDateErrorText" fill="#e10e0e" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="100.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="756.0" spacing="50.0">
+                     <children>
+                        <Label text="结束日期： ">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="482.0" spacing="10.0">
+                           <children>
+                              <TextField fx:id="endYearTextField" prefHeight="30.0" prefWidth="85.0" promptText="2017" />
+                              <Label prefHeight="32.0" prefWidth="30.0" text="年">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="endMonthTextField" layoutX="66.0" layoutY="30.0" prefHeight="30.0" prefWidth="60.0" promptText="12" />
+                              <Label layoutX="82.0" layoutY="29.0" prefHeight="32.0" prefWidth="35.0" text="月">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="endDayTextField" layoutX="110.0" layoutY="30.0" prefHeight="30.0" prefWidth="45.0" promptText="30" />
+                              <Label layoutX="124.0" layoutY="29.0" prefHeight="32.0" prefWidth="49.0" text="日">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Text fx:id="endDateErrorText" fill="#e10e0e" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="100.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="757.0" spacing="150.0">
+                     <children>
+                        <Label text="折扣： ">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="434.0">
+                           <children>
+                              <TextField fx:id="discountTextField" promptText="请输入促销折扣" />
+                              <Label text="\%">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Text fx:id="discountErrorText" fill="#e10e0e" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="100.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="760.0" spacing="125.0">
+                     <children>
+                        <Label text="组合商品总计：">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Text fx:id="totalPriceText" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets left="100.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="140.0" prefWidth="699.0" spacing="100.0">
+                     <children>
+                        <Label text="备注： ">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="remarkTextArea" prefHeight="133.0" prefWidth="364.0" promptText="请输入您的备注" />
+                     </children>
+                     <padding>
+                        <Insets left="100.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="40.0" top="40.0" />
+               </padding>
+            </FlowPane>
+         </content>
+      </ScrollPane>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" spacing="200.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#ensureButtonListener" prefHeight="60.0" prefWidth="120.0" text="提交" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#cancelButtonListener" prefHeight="60.0" prefWidth="120.0" text="取消">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+   <right>
+      <VBox alignment="TOP_CENTER" minWidth="412.0" prefHeight="656.0" prefWidth="644.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <ScrollPane minHeight="580.0">
+               <content>
+                  <TableView fx:id="giftTableView" prefHeight="600.0" prefWidth="628.0">
+                    <columns>
+                      <TableColumn fx:id="giftIdTableColumn" minWidth="0.0" prefWidth="86.0" text="组合商品ID" />
+                      <TableColumn fx:id="giftNameTableColumn" minWidth="0.0" prefWidth="81.0" text="商品名称" />
+                        <TableColumn fx:id="giftPriceTableColumn" prefWidth="84.0" text="单价" />
+                        <TableColumn fx:id="giftAmountTableColumn" minWidth="0.0" prefWidth="58.0" text="商品数量" />
+                        <TableColumn fx:id="giftTotalPriceTableColumn" prefWidth="154.0" text="总价" />
+                        <TableColumn fx:id="giftShowTableColumn" minWidth="0.0" prefWidth="65.0" text="查看" />
+                        <TableColumn fx:id="giftDeleteTableColumn" prefWidth="75.0" text="删除" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </content>
+            </ScrollPane>
+            <Button mnemonicParsing="false" onAction="#addGiftButtonListener" prefHeight="36.0" prefWidth="109.0" text="新增商品">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
+      </VBox>
+   </right>
+   <top>
+      <HBox alignment="CENTER" prefHeight="35.0" prefWidth="700.0" spacing="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="nameTextField" prefHeight="79.0" prefWidth="372.0" promptText="请输入促销策略名称">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </TextField>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <Pane prefHeight="656.0" BorderPane.alignment="CENTER" />
+   </left>
+</BorderPane>

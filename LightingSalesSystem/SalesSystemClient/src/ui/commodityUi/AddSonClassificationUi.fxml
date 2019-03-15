@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<GridPane fx:id="backgroundPane"
+stylesheets="@CSS1.css"
+fx:controller="ui.commodityUi.AddSonClassificationUiController"
+xmlns:fx="http://javafx.com/fxml"
+alignment="center"
+hgap="10"
+vgap="10"
+>
+<padding>
+<Insets top="25" bottom="25" right="25" left="25"/>
+</padding>
+<Text fx:id="AddSonClassificationLabel"
+      text="增加新的子类别"
+      GridPane.rowIndex="0" GridPane.columnIndex="0"
+     >
+<font>
+<Font size="35.0" />
+</font>
+</Text>
+<Text fx:id="classificationNameLabel"
+text="类别名称:"
+GridPane.rowIndex="2" GridPane.columnIndex="0"
+>
+<font>
+<Font size="25.0" />
+</font>
+</Text>
+<TextField fx:id="sonClassificationNameInput"
+GridPane.rowIndex="2" GridPane.columnIndex="1"
+>
+<font>
+<Font size="25.0" />
+</font>
+</TextField>
+<Button fx:id="confirm"
+        onAction="#confirmSonClassificationName"
+        text="确认"
+        GridPane.rowIndex="3" GridPane.columnIndex="1"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+<Button fx:id="cancel"
+        onAction="#cancelAddSonClassification"
+        text="取消"
+        GridPane.rowIndex="3" GridPane.columnIndex="2"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+</GridPane>

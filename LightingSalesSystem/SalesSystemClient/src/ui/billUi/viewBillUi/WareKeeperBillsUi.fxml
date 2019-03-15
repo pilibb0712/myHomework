@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="786.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.billUi.viewBillUi.ViewWareKeeperBillUiController">
+   <center>
+      <ScrollPane hbarPolicy="NEVER" prefViewportHeight="786.0" prefViewportWidth="1101.0">
+         <content>
+            <VBox fx:id="entryVBox" alignment="CENTER" maxHeight="1.7976931348623157E308" prefHeight="786.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="1011.0">
+                     <children>
+                        <Separator layoutX="66.0" layoutY="172.0" prefHeight="0.0" prefWidth="921.0" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="175.0" />
+                        <Text fx:id="billNameText" layoutX="381.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="xxxxx单据" wrappingWidth="248.240234375">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="BillIDLabel" layoutX="138.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="单据编号：" wrappingWidth="110.240234375">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="BillID" layoutX="234.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="252.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="createDateText" layoutX="723.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2017年12月31日" wrappingWidth="206.240234375">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="OperatorLabel" layoutX="142.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="操作员：" wrappingWidth="101.240234375">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="GoodsNameLabel" layoutX="138.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="商品名称：" wrappingWidth="241.400390625">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="Operator" layoutX="265.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="227.400390625">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="GoodsName" layoutX="234.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="227.400390625">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="GoodsIDLabel" layoutX="139.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="商品编号：" wrappingWidth="227.400390625">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="SysInvenLabel" layoutX="139.0" layoutY="497.0" strokeType="OUTSIDE" strokeWidth="0.0" text="系统库存：" wrappingWidth="227.400390625">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="GoodsID" layoutX="234.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="227.400390625">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="SysInvenAmount" layoutX="234.0" layoutY="496.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="227.400390625">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="RealOrWarningLabel" layoutX="139.0" layoutY="551.0" strokeType="OUTSIDE" strokeWidth="0.0" text="实际库存：" wrappingWidth="227.400390625">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="RealOrWarningAmount" layoutX="234.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="227.400390625">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="dAmountLabel" layoutX="145.0" layoutY="599.0" strokeType="OUTSIDE" strokeWidth="0.0" text="缺损量：" wrappingWidth="227.400390625">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="confirmBill" layoutX="460.0" layoutY="620.0" mnemonicParsing="false" onAction="#confirmTheBill" prefHeight="33.0" prefWidth="90.0" text="确认">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Button>
+                        <Text fx:id="dAmount" layoutX="225.0" layoutY="598.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="227.400390625">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="GoodsTypeLabel" layoutX="139.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="商品型号：" wrappingWidth="227.400390625">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="GoodsType" layoutX="234.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="227.400390625">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="GoodsPriceLabel" layoutX="139.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="商品价格：" wrappingWidth="227.400390625">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="GoodsPrice" layoutX="234.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="227.400390625">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+   <right>
+      <VBox prefHeight="786.0" prefWidth="291.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="billStateLabel" prefHeight="45.0" prefWidth="187.0">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="审批者：">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="approverText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="260.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="执行者：">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="executorText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="263.400390625">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="审批时间：">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="approveDateText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="254.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="完成时间：">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="finishDateText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="259.400390625">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="审批者备注：">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <TextArea fx:id="approverCommentArea" editable="false" prefHeight="135.0" prefWidth="262.0" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextArea>
+         </children>
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+         </padding>
+      </VBox>
+   </right>
+</BorderPane>

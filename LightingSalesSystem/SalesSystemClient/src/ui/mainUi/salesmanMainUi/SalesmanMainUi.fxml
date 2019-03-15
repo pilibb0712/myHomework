@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane id="bottom-BorderPane" prefHeight="786.0" prefWidth="1366.0" stylesheets="@SalesmanMainUi.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.mainUi.salesmanMainUi.SalesmanMainUiController">
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="100.0" prefWidth="118.0">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+            <Label fx:id="userNameLabel" prefHeight="108.0" prefWidth="228.0" text="UserName" textFill="WHITE">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+            <Label fx:id="userIdLabel" prefHeight="108.0" prefWidth="228.0" text="UserId" textFill="WHITE">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+            <Label prefHeight="108.0" prefWidth="228.0">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+            <Label prefHeight="108.0" prefWidth="228.0">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+         </children></HBox>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="89.0" layoutY="126.0" mnemonicParsing="false" onAction="#viewCustomerButtonListener" prefHeight="67.0" prefWidth="157.0" styleClass="buttons" text="客户管理" />
+            <Button layoutX="89.0" layoutY="373.0" mnemonicParsing="false" onAction="#addCustomerButtonListener" prefHeight="67.0" prefWidth="157.0" styleClass="buttons" text="新增客户" />
+            <Button layoutX="441.0" layoutY="125.0" mnemonicParsing="false" onAction="#newPurchaseButtonListener" prefHeight="62.0" prefWidth="156.0" styleClass="buttons" text="新建进货单" />
+            <Button layoutX="649.0" layoutY="193.0" mnemonicParsing="false" onAction="#newPurchaseReturnButtonListener" prefHeight="62.0" prefWidth="156.0" styleClass="buttons" text="新建进货退货单" />
+            <Button layoutX="425.0" layoutY="449.0" mnemonicParsing="false" onAction="#newSalesButtonListener" prefHeight="62.0" prefWidth="156.0" styleClass="buttons" text="新建出货单" />
+            <Button layoutX="615.0" layoutY="434.0" mnemonicParsing="false" onAction="#newSalesReturnButtonListener" prefHeight="62.0" prefWidth="156.0" styleClass="buttons" text="新建出货退货单" />
+            <Button layoutX="1108.0" layoutY="403.0" mnemonicParsing="false" onAction="#billStateButtonListener" prefHeight="62.0" prefWidth="156.0" styleClass="buttons" text="查看单据" />
+         </children></AnchorPane>
+   </center>
+</BorderPane>

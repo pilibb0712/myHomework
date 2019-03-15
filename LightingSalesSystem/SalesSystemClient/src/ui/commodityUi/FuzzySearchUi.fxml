@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<VBox fx:id="backgroundPane"
+stylesheets="@CSS1.css"
+fx:controller="ui.commodityUi.FuzzySearchUiController"
+xmlns:fx="http://javafx.com/fxml"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+alignment="center"
+spacing="20"
+>
+<padding>
+<Insets top="25" bottom="25" right="25" left="25"/>
+</padding>
+<children>
+
+<Text fx:id="searchResultLabel"
+      text="搜索结果"
+>
+<font>
+<Font size="35.0" />
+</font>
+</Text>
+<Text fx:id="inforLabel"
+      text="   商品编号      商品名称    商品型号"
+>
+<font>
+<Font size="22.0" />
+</font>
+</Text>
+<ScrollPane
+styleClass="scrollpane"
+>
+<padding>
+<Insets top="0" bottom="0" right="0" left="0"/>
+</padding>
+<HBox
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="10">
+<children>
+<VBox
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="10">
+<children>
+<Text
+text="                                                                                                                                        "
+/>
+</children>
+</VBox>
+<VBox fx:id="relatedGoodsPane"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="10">
+</VBox>
+</children>
+</HBox>
+</ScrollPane>
+<Button fx:id="return"
+text="返回"
+onAction="#returnFromFuzzySearch"
+styleClass="usercase-buttons"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+</children>
+</VBox>

@@ -1,0 +1,120 @@
+
+#new-bills-background{
+	-fx-background-image:url('../../resource/SystemImage/financeUiImages/newFinanceBillsUi.jpg') ;
+}
+
+.buttons{
+	-fx-background-color: 
+        linear-gradient(#f2f2f2, #d6d6d6),
+        linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),
+        linear-gradient(#dddddd 0%, #f6f6f6 50%);
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( gaussian , white , 10, 0 , 0 , 5 );
+}
+
+.buttons:hover{
+	 -fx-background-color: 
+        linear-gradient(#f2f2f2, #f6f6f6),
+        linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),
+    	linear-gradient(#f2f2f2 0%, #f6f6f6 50%);
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( gaussian , white , 10, 0 , 0 , 5 );
+}
+
+.buttons:pressed{
+	-fx-background-color: 
+        linear-gradient(#f2f2f2, #d6d6d6),
+        linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),
+        linear-gradient(#dddddd 0%, #f6f6f6 50%);
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( gaussian , white , 10, 0 , 0 , 5 );
+}
+
+.back-buttons{
+	-fx-background-color: 
+        linear-gradient(#f2f2f2, #d6d6d6),
+        linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),
+        linear-gradient(#dddddd 0%, #f6f6f6 50%);
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( gaussian , white , 10, 0 , 0 , 5 );
+}
+
+.back-buttons:hover{
+	 -fx-background-color: 
+        linear-gradient(#f2f2f2, #f6f6f6),
+        linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),
+    	linear-gradient(#f2f2f2 0%, #f6f6f6 50%);
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( gaussian , white , 10, 0 , 0 , 5 );
+}
+
+.back-buttons:pressed{
+	-fx-background-color: 
+        linear-gradient(#f2f2f2, #d6d6d6),
+        linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),
+        linear-gradient(#dddddd 0%, #f6f6f6 50%);
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( gaussian , white , 10, 0 , 0 , 5 );
+}
+
+.back-buttons, .back-buttons:hover, .back-buttons:pressed{
+	-fx-background-radius:90;
+	-fx-border-radius:90;
+}
+
+.back-buttons, .back-buttons:pressed{
+	-fx-background-image:url('../../resource/systemImage/sharedImages/backButtonIcon.png') ;
+	-fx-background-repeat: no-repeat;
+}
+
+.back-buttons:hover{
+	-fx-background-image:url('../../resource/systemImage/sharedImages/backButtonHoverIcon.png') ;
+	-fx-background-repeat: no-repeat;
+}
+
+.text-area {
+    -fx-padding: 0;
+    -fx-cursor: default;
+    -fx-background-color: linear-gradient(to bottom, derive(-fx-text-box-border, -10%), -fx-text-box-border),
+        derive(-fx-base,-1%);
+}
+.text-area > .scroll-pane {
+    -fx-background-color: null;
+}
+.text-area > .scroll-pane > .scroll-bar:horizontal {
+    -fx-background-radius: 0 0 2 2;
+}
+.text-area > .scroll-pane > .scroll-bar:vertical {
+    -fx-background-radius: 0 2 2 0;
+}
+.text-area > .scroll-pane > .corner {
+    -fx-background-radius: 0 0 2 0;
+}
+.text-area .content {
+    /*the is 1px less top and bottom than TextInput because of scrollpane border */
+    -fx-padding: 0.25em 0.583em 0.25em 0.583em; /* 3 7 3 7 */
+    -fx-cursor: text;
+    -fx-background-color:
+        linear-gradient(from 0px 0px to 0px 4px, derive(-fx-control-inner-background, -8%), -fx-control-inner-background);
+    -fx-background-radius: 2;
+}
+.text-area:focused .content {
+    -fx-background-color:
+        -fx-control-inner-background,
+        -fx-faint-focus-color,
+        linear-gradient(from 0px 0px to 0px 5px, derive(-fx-control-inner-background, -9%), -fx-control-inner-background);
+    -fx-background-insets: 0, 0, 2;
+    -fx-background-radius: 2, 1, 0;
+}

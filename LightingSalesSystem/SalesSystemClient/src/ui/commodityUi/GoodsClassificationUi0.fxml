@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<VBox fx:id="backgroundPane"
+fx:controller="ui.commodityUi.GoodsClassificationUiController"
+xmlns:fx="http://javafx.com/fxml"
+stylesheets="@CSS1.css"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="20"
+
+>
+<padding>
+<Insets top="25" bottom="25" right="25" left="25"/>
+</padding>
+<children>
+<Text fx:id="ClassificationManaLabel"
+      text="商品分类管理"
+>
+<font>
+<Font size="35.0" />
+</font>
+</Text>
+<GridPane fx:id="classificationsPane"
+hgap="10"
+vgap="10"
+>
+</GridPane>
+<HBox spacing="20">
+<Button fx:id="addNewClassificationButton"
+        text="增加新的根类别"
+        prefWidth="300" prefHeight="60"
+        onAction="#initAddNewClassificationUI"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="25.0" />
+</font>
+</Button>
+<Button fx:id="returnBackButton"
+        text="返回"
+        prefWidth="100" prefHeight="60"
+        onAction="#returnBack"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+</HBox>
+</children>
+</VBox>

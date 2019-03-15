@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<GridPane fx:id="backgroundPane"
+stylesheets="@CSS1.css"
+fx:controller="ui.commodityUi.ModifyGoodsUiController"
+xmlns:fx="http://javafx.com/fxml"
+alignment="center"
+hgap="20"
+vgap="20"
+>
+<padding>
+<Insets top="25" bottom="25" right="25" left="25"/>
+</padding>
+<Text fx:id="modifyGoodsInforLabel"
+      text="编辑商品信息"
+      GridPane.rowIndex="0"  GridPane.columnIndex="0"
+>
+<font>
+<Font size="35.0" />
+</font>
+</Text>
+<Text fx:id="goodsNameLabel"
+      text="商品名称："
+      GridPane.rowIndex="1"  GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<TextField fx:id="newGoodsName"
+      GridPane.rowIndex="1" GridPane.columnIndex="1"
+>
+<font>
+<Font size="20.0" />
+</font>
+</TextField>
+<Text fx:id="classificationLabel"
+      text="所属类别："
+      GridPane.rowIndex="1"  GridPane.columnIndex="2"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<TextField fx:id="newGoodsClassification"
+      GridPane.rowIndex="1" GridPane.columnIndex="3"
+>
+<font>
+<Font size="20.0" />
+</font>
+</TextField>
+<Text fx:id="goodsTypeLabel"
+      text="型号："
+      GridPane.rowIndex="2"  GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<TextField fx:id="newGoodsType"
+      GridPane.rowIndex="2" GridPane.columnIndex="1"
+>
+<font>
+<Font size="20.0" />
+</font>
+</TextField>
+<Text fx:id="costPriceLabel"
+      text="进价："
+      GridPane.rowIndex="2"  GridPane.columnIndex="2"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<TextField fx:id="newCostPrice"
+      GridPane.rowIndex="2" GridPane.columnIndex="3"
+>
+<font>
+<Font size="20.0" />
+</font>
+</TextField>
+<Text fx:id="sellingPriceLabel"
+      text="零售价："
+      GridPane.rowIndex="3"  GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<TextField fx:id="newSellingPrice"
+      GridPane.rowIndex="3" GridPane.columnIndex="1"
+>
+<font>
+<Font size="20.0" />
+</font>
+</TextField>
+<Text fx:id="currentCostPriceLabel"
+      text="最近进价："
+      GridPane.rowIndex="3"  GridPane.columnIndex="2"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<TextField fx:id="newCurrentCostPrice"
+      GridPane.rowIndex="3" GridPane.columnIndex="3"
+>
+<font>
+<Font size="20.0" />
+</font>
+</TextField>
+<Text fx:id="currentSellingPriceLabel"
+      text="最近零售价："
+      GridPane.rowIndex="4"  GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<TextField fx:id="newCurrentSellingPrice"
+      GridPane.rowIndex="4" GridPane.columnIndex="1"
+>
+<font>
+<Font size="20.0" />
+</font>
+</TextField>
+<Button fx:id="confirm"
+        text="确认"
+        onAction="#confirmModifyGoodsInfor"
+        GridPane.rowIndex="6" GridPane.columnIndex="1"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+<Button fx:id="cancel"
+        text="取消"
+        onAction="#cancelModifyGoodsInfor"
+        GridPane.rowIndex="6" GridPane.columnIndex="3"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+</GridPane>

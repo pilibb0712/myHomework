@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="786.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.adminUi.AddUserUiController">
+   <top>
+      <HBox alignment="CENTER" prefHeight="44.0" prefWidth="1366.0" spacing="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="用户信息">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
+            <VBox prefHeight="686.0" prefWidth="1165.0" spacing="30.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="543.0">
+                     <children>
+                        <VBox prefHeight="100.0" prefWidth="700.0" spacing="30.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="100.0">
+                                 <children>
+                                    <Label text="名字：">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="nameTextField" />
+                                    <Text fx:id="nameErrorText" fill="#f80000" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="60.0" prefHeight="35.0" prefWidth="600.0" spacing="100.0">
+                                 <children>
+                                    <Label text="年龄：">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="ageTextField" />
+                                    <Text fx:id="ageTextErrorText" fill="#f80000" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="32.0" prefWidth="171.0" text="职位：">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="positionTextField" />
+                        <MenuButton mnemonicParsing="false" prefHeight="30.0" prefWidth="77.0" text="职位">
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#managerMenuItemListener" text="总经理" />
+                            <MenuItem mnemonicParsing="false" onAction="#financeMenuItemListener" text="财务人员" />
+                              <MenuItem mnemonicParsing="false" onAction="#salesmanMenuItemListener" text="销售人员" />
+                              <MenuItem mnemonicParsing="false" onAction="#wareKeeperMenuItemListener" text="库存管理员" />
+                              <MenuItem mnemonicParsing="false" onAction="#adminMenuItemListener" text="管理员" />
+                          </items>
+                        </MenuButton>
+                        <Text fx:id="positionErrorText" fill="#f80000" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="379.0" spacing="150.0">
+                           <children>
+                              <Label text="描述：">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <TextArea fx:id="descriptionTextArea" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                  </VBox>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="150.0" right="400.0" top="75.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" spacing="100.0">
+         <children>
+            <Button fx:id="ensureButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="124.0" text="确定" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Button layoutX="366.0" layoutY="10.0" mnemonicParsing="false" onAction="#cancelButtonListener" prefHeight="40.0" prefWidth="124.0" text="取消">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

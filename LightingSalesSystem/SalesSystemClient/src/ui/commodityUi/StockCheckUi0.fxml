@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<GridPane fx:id="backgroundPane"
+stylesheets="@CSS1.css"
+fx:controller="ui.commodityUi.StockCheckUiController"
+xmlns:fx="http://javafx.com/fxml"
+alignment="center"
+hgap="10"
+vgap="10"
+>
+<padding>
+<Insets top="25" bottom="25" right="25" left="25"/>
+</padding>
+<Text fx:id="stockCheckLabel"
+      text="库存审查"
+      GridPane.rowIndex="0" GridPane.columnIndex="0"
+>
+<font>
+<Font size="25.0" />
+</font>
+</Text>
+<Text fx:id="startTimeLabel"
+      text="开始时间："
+      GridPane.rowIndex="1" GridPane.columnIndex="0"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Text>
+<TextField fx:id="startyear"
+       PromptText="yyyy"
+       text="2017"
+       GridPane.rowIndex="1" GridPane.columnIndex="1"
+>
+<font>
+<Font size="15.0" />
+</font>
+</TextField>
+
+<Text fx:id="startyearLabel"
+      text="年"
+      GridPane.rowIndex="1" GridPane.columnIndex="2"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Text>
+
+<TextField fx:id="startmonth"
+       PromptText="MM"
+       text="1"
+       GridPane.rowIndex="1" GridPane.columnIndex="3"
+>
+<font>
+<Font size="15.0" />
+</font>
+</TextField>
+
+<Text fx:id="startmonthLabel"
+      text="月"
+      GridPane.rowIndex="1" GridPane.columnIndex="4"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Text>
+
+<TextField fx:id="startday"
+       PromptText="dd"
+       text="1"
+       GridPane.rowIndex="1" GridPane.columnIndex="5"
+>
+<font>
+<Font size="15.0" />
+</font>
+</TextField>
+<Text fx:id="startdayLabel"
+      text="日"
+      GridPane.rowIndex="1" GridPane.columnIndex="6"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Text>
+<TextField fx:id="starthour"
+       PromptText="HH"
+       text="1"
+       GridPane.rowIndex="1" GridPane.columnIndex="7"
+>
+<font>
+<Font size="15.0" />
+</font>
+</TextField>
+<Text fx:id="starthourLabel"
+      text="时"
+      GridPane.rowIndex="1" GridPane.columnIndex="8"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Text>
+<TextField fx:id="startminute"
+       PromptText="mm"
+       text="00"
+       GridPane.rowIndex="1" GridPane.columnIndex="9"
+>
+<font>
+<Font size="15.0" />
+</font>
+</TextField>
+<Text fx:id="startminuteLabel"
+      text="分"
+      GridPane.rowIndex="1" GridPane.columnIndex="10"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Text>
+<Text fx:id="endTimeLabel"
+      text="结束时间："
+      GridPane.rowIndex="2" GridPane.columnIndex="0"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Text>
+<TextField fx:id="endyear"
+       PromptText="yyyy"
+       text="2017"
+       GridPane.rowIndex="2" GridPane.columnIndex="1"
+>
+<font>
+<Font size="15.0" />
+</font>
+</TextField>
+<Text fx:id="endyearLabel"
+      text="年"
+      GridPane.rowIndex="2" GridPane.columnIndex="2"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Text>
+<TextField fx:id="endmonth"
+       PromptText="MM"
+       text="2"
+       GridPane.rowIndex="2" GridPane.columnIndex="3"
+>
+<font>
+<Font size="15.0" />
+</font>
+</TextField>
+<Text fx:id="endmonthLabel"
+      text="月"
+      GridPane.rowIndex="2" GridPane.columnIndex="4"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Text>
+<TextField fx:id="endday"
+       PromptText="dd"
+       text="2"
+       GridPane.rowIndex="2" GridPane.columnIndex="5"
+>
+<font>
+<Font size="15.0" />
+</font>
+</TextField>
+<Text fx:id="enddayLabel"
+      text="日"
+      GridPane.rowIndex="2" GridPane.columnIndex="6"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Text>
+<TextField fx:id="endhour"
+       PromptText="HH"
+       text="2"
+       GridPane.rowIndex="2" GridPane.columnIndex="7"
+>
+<font>
+<Font size="15.0" />
+</font>
+</TextField>
+<Text fx:id="endhourLabel"
+      text="时"
+      GridPane.rowIndex="2" GridPane.columnIndex="8"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Text>
+<TextField fx:id="endminute"
+       PromptText="mm"
+       text="00"
+       GridPane.rowIndex="2" GridPane.columnIndex="9"
+>
+<font>
+<Font size="15.0" />
+</font>
+</TextField>
+<Text fx:id="endminuteLabel"
+      text="分"
+      GridPane.rowIndex="2" GridPane.columnIndex="10"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Text>
+<Button fx:id="confirm"
+        text="确定"
+        onAction="#confirmTime"
+        GridPane.rowIndex="4" GridPane.columnIndex="5"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+<Button fx:id="return"
+        text="返回"
+        onAction="#returnBack"
+        GridPane.rowIndex="6" GridPane.columnIndex="9"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+</GridPane>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane id="new-bills-background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="786.0" prefWidth="1366.0" stylesheets="@FinanceUi.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.financeUi.NewFinanceBillsUiController">
+   <top>
+      <HBox prefHeight="130.0" prefWidth="1366.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#backButtonListener" prefHeight="80.0" prefWidth="80.0" styleClass="back-buttons">
+               <HBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+            <Text fx:id="billTypePrompt" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="394.240234375">
+               <font>
+                  <Font size="51.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="200.0" top="50.0" />
+               </HBox.margin>
+            </Text>
+         </children>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="1366.0" spacing="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="submitButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#submitButtonListener" prefHeight="45.0" prefWidth="136.0" styleClass="buttons" text="提交">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="saveDraftButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#saveDraftButtonListener" prefHeight="45.0" prefWidth="136.0" styleClass="buttons" text="保存草稿">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets top="-40.0" />
+         </padding>
+      </HBox>
+   </bottom>
+   <right>
+      <GridPane hgap="20.0" prefHeight="494.0" prefWidth="358.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="148.0" minWidth="10.0" prefWidth="119.0" />
+          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="189.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="81.0" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="99.0" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="85.0" minHeight="10.0" prefHeight="79.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="94.0" minHeight="0.0" prefHeight="63.0" vgrow="SOMETIMES" />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+        </rowConstraints>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="时间" wrappingWidth="52.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="银行账户" GridPane.rowIndex="1">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <TextField fx:id="bankAccountTextField" prefHeight="39.0" prefWidth="189.0" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="交易总额" GridPane.rowIndex="2">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <TextField fx:id="sumTextField" prefHeight="39.0" prefWidth="189.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="备注" GridPane.rowIndex="3">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="createTimeText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="189.240234375" GridPane.columnIndex="1">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <TextArea fx:id="commentTextArea" prefHeight="200.0" prefWidth="200.0" styleClass="text-area" stylesheets="@FinanceUi.css" GridPane.columnSpan="2" GridPane.rowIndex="7">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor></TextArea>
+         </children>
+         <padding>
+            <Insets right="30.0" />
+         </padding>
+      </GridPane>
+   </right>
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="507.0" prefWidth="298.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="draftListTable" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="400.0">
+              <columns>
+                <TableColumn fx:id="draftDeleteColumn" prefWidth="66.0" text="删除" />
+                  <TableColumn fx:id="draftViewColumn" prefWidth="67.0" text="查看" />
+                <TableColumn fx:id="draftColumn" prefWidth="265.0" text="单据草稿" />
+              </columns>
+            </TableView>
+         </children>
+         <BorderPane.margin>
+            <Insets left="20.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <center>
+      <TableView fx:id="entryTable" editable="true" prefHeight="507.0" prefWidth="597.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="entryNameColumn" onEditCommit="#columnOnEditCommit" prefWidth="264.0" text="条目名" />
+          <TableColumn fx:id="entryMoneyColumn" onEditCommit="#columnOnEditCommit" prefWidth="263.0" text="金额" />
+        </columns>
+         <BorderPane.margin>
+            <Insets left="30.0" right="30.0" />
+         </BorderPane.margin>
+      </TableView>
+   </center>
+</BorderPane>

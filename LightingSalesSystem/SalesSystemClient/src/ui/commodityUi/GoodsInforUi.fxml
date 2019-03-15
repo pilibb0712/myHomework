@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<GridPane fx:id="backgroundPane"
+stylesheets="@CSS1.css"
+fx:controller="ui.commodityUi.GoodsInforUiController"
+xmlns:fx="http://javafx.com/fxml"
+alignment="center"
+hgap="20"
+vgap="20"
+>
+<padding>
+<Insets top="25" bottom="25" right="25" left="25"/>
+</padding>
+<Text fx:id="goodsInforLabel"
+      text="                   商品信息"
+      GridPane.rowIndex="0" GridPane.columnIndex="0"
+>
+<font>
+<Font size="35.0" />
+</font>
+</Text>
+<Text fx:id="goodsName"
+GridPane.rowIndex="1" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="goodsID"
+GridPane.rowIndex="1" GridPane.columnIndex="1"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="classification"
+GridPane.rowIndex="2" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="type"
+GridPane.rowIndex="2" GridPane.columnIndex="1"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="amount"
+GridPane.rowIndex="3" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="costPrice"
+GridPane.rowIndex="3" GridPane.columnIndex="1"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="sellingPrice"
+GridPane.rowIndex="4" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="currentCostPrice"
+GridPane.rowIndex="4" GridPane.columnIndex="1"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="currentSellingPrice"
+GridPane.rowIndex="5" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Button fx:id="confirmButton"
+        onAction="#confirmGoodsInfor"
+        text="确认"
+        GridPane.rowIndex="6" GridPane.columnIndex="0"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+<Button fx:id="modifyButton"
+        onAction="#initModifyGoodsInforUi"
+        text="修改"
+        GridPane.rowIndex="6" GridPane.columnIndex="1"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+</GridPane>

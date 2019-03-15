@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="500.0" prefWidth="400.0" styleClass="background" stylesheets="@LoginUi.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.loginUi.LoginUiController">
+   <center>
+      <GridPane alignment="CENTER" hgap="20.0" prefHeight="275.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="112.0" />
+          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="288.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="154.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="151.0" minHeight="0.0" prefHeight="77.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="160.0" minHeight="3.0" prefHeight="95.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="187.0" minHeight="10.0" prefHeight="94.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="账号：">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="密码：" GridPane.rowIndex="1">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <TextField fx:id="userIdTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="225.0" promptText="请输入您的ID" GridPane.columnIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="userPasswordTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="226.0" promptText="请输入密码" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </PasswordField>
+            <Text fx:id="promptTextField" strokeType="OUTSIDE" strokeWidth="0.0" text="欢迎使用管理系统！" textAlignment="CENTER" wrappingWidth="217.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <HBox alignment="TOP_CENTER" prefHeight="61.0" prefWidth="600.0" spacing="30.0" GridPane.columnSpan="2" GridPane.rowIndex="3">
+               <children>
+                  <Button fx:id="registerButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#register" prefHeight="40.0" prefWidth="80.0" styleClass="buttons" stylesheets="@LoginUi.css" text="注册">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="LoginButton" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="80.0" styleClass="buttons" text="登录">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#exitButtonListener" prefHeight="40.0" prefWidth="80.0" styleClass="buttons" text="退出">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="50.0" left="50.0" right="30.0" top="150.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </center>
+</BorderPane>

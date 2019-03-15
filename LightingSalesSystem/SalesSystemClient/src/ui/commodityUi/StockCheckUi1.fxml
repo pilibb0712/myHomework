@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.ScrollPane?>
+<VBox fx:id="backgroundPane"
+stylesheets="@CSS1.css"
+fx:controller="ui.commodityUi.StockCheckSheetUiController"
+xmlns:fx="http://javafx.com/fxml"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+alignment="center"
+spacing="10">
+<children>
+<Text fx:id="stockCheckLabel"
+text="库存审查"
+>
+<font>
+<Font size="35.0" style="bold"/>
+</font>
+</Text>
+<VBox
+fx:id="stockCheckContents"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+alignment="top_center"
+spacing="10"
+prefHeight="500">
+<padding>
+<Insets top="20" bottom="20" right="20" left="30"/>
+</padding>
+<children>
+<HBox
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+alignment="top_center"
+spacing="0">
+<children>
+<Label fx:id="goodsNameLabel"
+       text="  商品名称"
+>
+<font>
+<Font size="25.0"
+      style="bold"
+       />
+</font>
+</Label>
+
+<Label fx:id="goodsIDLabel"
+       text="            商品编号"
+>
+<font>
+<Font size="25.0" style="bold" />
+</font>
+</Label>
+
+<Label fx:id="productionDateLabel"
+       text="      商品生产日期"
+>
+<font>
+<Font size="25.0" style="bold" />
+</font>
+</Label>
+
+<Label fx:id="stockTimeLabel"
+       text="         出入库时间"
+>
+<font>
+<Font size="25.0" style="bold"/>
+</font>
+</Label>
+
+<Label fx:id="stockInAmountLabel"
+       text="        入库数量"
+>
+<font>
+<Font size="25.0" style="bold"/>
+</font>
+</Label>
+
+<Label fx:id="costPriceLabel"
+       text="      商品进价"
+>
+<font>
+<Font size="25.0" style="bold"/>
+</font>
+</Label>
+
+<Label fx:id="stockOutAmountLabel"
+       text="     出库数量"
+>
+<font>
+<Font size="25.0" style="bold"/>
+</font>
+</Label>
+
+<Label fx:id="sellingPriceLabel"
+       text="       商品零售价"
+>
+<font>
+<Font size="25.0" style="bold"/>
+</font>
+</Label>
+
+</children>
+</HBox>
+<ScrollPane
+styleClass="scrollpane"
+>
+<padding>
+<Insets top="0" bottom="0" right="0" left="0"/>
+</padding>
+<HBox
+fx:id="stockCheckContents"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+alignment="top_center"
+spacing="40">
+<children>
+<VBox
+fx:id="goodsName"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+alignment="top_center"
+spacing="5">
+<children>
+</children>
+</VBox>
+<VBox
+fx:id="goodsID"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="5">
+<children>
+</children>
+</VBox>
+<VBox
+fx:id="productionDate"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="5">
+<children>
+</children>
+</VBox>
+<VBox
+fx:id="stockTime"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="5">
+<children>
+</children>
+</VBox>
+<VBox
+fx:id="stockInAmount"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="5">
+<children>
+</children>
+</VBox>
+<VBox
+fx:id="costPrice"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="5">
+<children>
+</children>
+</VBox>
+<VBox
+fx:id="stockOutAmount"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="5">
+<children>
+</children>
+</VBox>
+<VBox
+fx:id="sellingPrice"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="5">
+<children>
+</children>
+</VBox>
+</children>
+</HBox>
+</ScrollPane>
+
+</children>
+</VBox>
+
+<HBox
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="40"
+>
+<children>
+
+<VBox fx:id="inAllLabel"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="20"
+>
+
+<children>
+</children>
+</VBox>
+
+<VBox fx:id="inAllOverAmount"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="20"
+>
+<children>
+</children>
+</VBox>
+
+<VBox fx:id="inAllOverMoney"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="20"
+>
+<children>
+</children>
+</VBox>
+
+<VBox fx:id="inAllLessAmount"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="20"
+>
+<children>
+</children>
+</VBox>
+
+<VBox fx:id="inAllLessMoney"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="20"
+>
+<children>
+</children>
+</VBox>
+
+</children>
+</HBox>
+<Button text="确认"
+        onAction="#confirmStockCheck"
+        styleClass="usercase-buttons"
+>
+<padding>
+<Insets top="10" bottom="10" right="20" left="20"/>
+</padding>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+</children>
+</VBox>

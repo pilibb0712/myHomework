@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<GridPane fx:id="backgroundPane"
+fx:controller="ui.mainUi.wareKeeperMainUi.WareKeeperMainUiController"
+xmlns:fx="http://javafx.com/fxml"
+stylesheets="@WareKeeperMainUi.css"
+alignment="center"
+hgap="40"
+vgap="40"
+>
+<padding>
+<Insets top="20" bottom="20" right="20" left="20"/>
+</padding>
+<Text fx:id="Date"
+      GridPane.rowIndex="0" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="operatorName"
+      text="operator name:zbb"
+      GridPane.rowIndex="1" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Text fx:id="operatorID"
+      text="operator ID:001"
+      GridPane.rowIndex="2" GridPane.columnIndex="0"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Text>
+<Button fx:id="viewBillButton"
+        text="查看单据"
+        prefWidth="100" prefHeight="70"
+        onAction="#toViewBills"
+        GridPane.rowIndex="4" GridPane.columnIndex="1"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Button>
+<Button fx:id="classManaButton"
+        text="库存分类管理"
+        prefWidth="120" prefHeight="70"
+        onAction="#toClassMana"
+        GridPane.rowIndex="3" GridPane.columnIndex="1"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Button>
+<Button fx:id="addGoodsButton"
+        text="增加商品"
+        prefWidth="100" prefHeight="70"
+        onAction="#toAddGoods"
+        GridPane.rowIndex="3" GridPane.columnIndex="3"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Button>
+<Button fx:id="deleteGoodsButton"
+        text="删除商品"
+        prefWidth="100" prefHeight="70"
+        onAction="#toDeleteGoods"
+        GridPane.rowIndex="2" GridPane.columnIndex="4"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Button>
+<Button fx:id="goodsInforButton"
+        text="商品信息管理"
+        prefWidth="120" prefHeight="70"
+        onAction="#toGoodsInfor"
+        GridPane.rowIndex="4" GridPane.columnIndex="0"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Button>
+<Button fx:id="stoCheckButton"
+        text="库存审查"
+        prefWidth="100" prefHeight="70"
+        onAction="#toStoCheck"
+        GridPane.rowIndex="5" GridPane.columnIndex="2"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Button>
+<Button fx:id="invenCheckButton"
+        text="库存盘点"
+        prefWidth="100" prefHeight="70"
+        onAction="#toInvenCheck"
+        GridPane.rowIndex="4" GridPane.columnIndex="3"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Button>
+<Button fx:id="actualInvenButton"
+        text="实际库存记录"
+        prefWidth="120" prefHeight="70"
+        onAction="#toActualInven"
+        GridPane.rowIndex="4" GridPane.columnIndex="5"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Button>
+<Button fx:id="exitButton"
+        text="退出"
+        prefWidth="80" prefHeight="50"
+        onAction="#exit"
+        GridPane.rowIndex="6" GridPane.columnIndex="6"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="15.0" />
+</font>
+</Button>
+</GridPane>
+

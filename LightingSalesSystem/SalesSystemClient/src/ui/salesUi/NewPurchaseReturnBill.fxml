@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane id="new-bills-background" minHeight="-Infinity" minWidth="-Infinity" prefHeight="786.0" prefWidth="1366.0" stylesheets="@SalesUi.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.salesUi.NewPurchaseReturnBillUiController">
+   <top>
+      <HBox prefHeight="120.0" prefWidth="1366.0" spacing="300.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#backButtoneListener" prefHeight="80.0" prefWidth="80.0" styleClass="back-buttons">
+               <HBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+            <Label prefHeight="120.0" prefWidth="252.0" text="进货退货单">
+               <font>
+                  <Font size="46.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Label>
+            <Button fx:id="newGoodsListButton" mnemonicParsing="false" onAction="#newGoodsList" styleClass="buttons" text="新建条目">
+               <HBox.margin>
+                  <Insets top="90.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox alignment="TOP_CENTER" prefHeight="126.0" prefWidth="1366.0" spacing="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="submitButton" mnemonicParsing="false" onAction="#submit" prefHeight="51.0" prefWidth="116.0" styleClass="buttons" text="提交">
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
+            <Button fx:id="saveAsDraftButton" mnemonicParsing="false" onAction="#saveAsDraft" prefHeight="51.0" prefWidth="116.0" styleClass="buttons" text="保存草稿">
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
+         </children>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+      </HBox>
+   </bottom>
+   <left>
+      <TableView fx:id="draftListTable" prefHeight="540.0" prefWidth="299.0" BorderPane.alignment="CENTER">
+        <columns>
+            <TableColumn fx:id="draftSubmitColumn" prefWidth="55.0" text="提交" />
+          <TableColumn fx:id="draftDeleteColumn" prefWidth="57.0" text="删除" />
+          <TableColumn fx:id="draftViewColumn" prefWidth="53.0" text="查看" />
+            <TableColumn fx:id="draftColumn" prefWidth="133.0" text="单据草稿" />
+        </columns>
+         <BorderPane.margin>
+            <Insets left="20.0" right="20.0" />
+         </BorderPane.margin>
+      </TableView>
+   </left>
+   <center>
+      <TableView fx:id="goodsInfoTable" editable="true" prefHeight="540.0" prefWidth="812.0" BorderPane.alignment="CENTER">
+        <columns>
+            <TableColumn fx:id="chooseButtonColumn" prefWidth="64.0" text="选择" />
+          <TableColumn fx:id="goodsIdColumn" prefWidth="93.0" text="商品编号" />
+          <TableColumn fx:id="goodsNameColumn" prefWidth="112.0" text="名称" />
+            <TableColumn fx:id="goodsTypeColumn" prefWidth="95.0" text="型号" />
+            <TableColumn fx:id="goodsNumColumn" onEditCommit="#numColumnEdited" prefWidth="63.0" text="数量" />
+            <TableColumn fx:id="goodsUnitPriceColumn" onEditCommit="#unitPriceColumnEdited" prefWidth="77.0" text="单价" />
+            <TableColumn fx:id="goodsSumPriceColumn" prefWidth="69.0" text="金额" />
+            <TableColumn fx:id="goodsCommentColumn" onEditCommit="#commentColumnEdited" prefWidth="184.0" text="备注" />
+        </columns>
+      </TableView>
+   </center>
+   <right>
+      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="259.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="84.0" />
+          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="116.0" minWidth="10.0" prefWidth="116.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin>
+         <children>
+            <TextField fx:id="SupplierText" onAction="#getCustomerInfo" prefHeight="36.0" prefWidth="156.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
+            <TextField fx:id="wareText" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
+            <TextField fx:id="commentText" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
+            <TextField fx:id="moneyText" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
+            <Label prefHeight="35.0" prefWidth="76.0" text="供应商：" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label prefHeight="35.0" prefWidth="57.0" text="仓库：" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label text="备注：" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label text="总额合计：" GridPane.rowIndex="4">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="单据编号：">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="billIdText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="158.0" GridPane.columnIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </GridPane>
+   </right>
+</BorderPane>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<GridPane fx:id="backgroundPane"
+stylesheets="@CSS1.css"
+fx:controller="ui.commodityUi.DeleteGoodsUiController"
+xmlns:fx="http://javafx.com/fxml"
+alignment="center"
+hgap="20"
+vgap="20"
+>
+<padding>
+<Insets top="25" bottom="25" right="25" left="25"/>
+</padding>
+<Text fx:id="deleteGoodsTopic"
+      text="减少商品"
+      GridPane.rowIndex="0"  GridPane.columnIndex="0"
+>
+<font>
+<Font size="35.0" />
+</font>
+</Text>
+<Text fx:id="goodsIDLabel"
+      text="商品编号:"
+      GridPane.rowIndex="1" GridPane.columnIndex="0"
+>
+<font>
+<Font size="25.0" />
+</font>
+</Text>
+<TextField fx:id="goodsID"
+      GridPane.rowIndex="1" GridPane.columnIndex="1"
+>
+<font>
+<Font size="25.0" />
+</font>
+</TextField>
+<Button fx:id="confirm"
+        text="确认"
+        onAction="#confirmGoodsID"
+        GridPane.rowIndex="1" GridPane.columnIndex="2"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+<Button fx:id="return"
+        text="返回"
+        onAction="#returnBack"
+        GridPane.rowIndex="3" GridPane.columnIndex="3"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="20.0" />
+</font>
+</Button>
+</GridPane>

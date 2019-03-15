@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Text?>
+<VBox fx:id="backgroundPane"
+stylesheets="@CSS1.css"
+fx:controller="ui.commodityUi.InventoryCheckUiController"
+xmlns:fx="http://javafx.com/fxml"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+alignment="center"
+spacing="10">
+<children>
+<VBox
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+alignment="center"
+spacing="10">
+<children>
+<Text fx:id="inventroyCheckLabel"
+text="库存快照"
+>
+<font>
+<Font size="35.0" style="bold"/>
+</font>
+</Text>
+<Text fx:id="dateLabel"
+>
+<font>
+<Font size="30.0" style="bold"/>
+</font>
+</Text>
+</children>
+</VBox>
+
+<VBox
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+alignment="top_center"
+spacing="10"
+prefHeight="500">
+<padding>
+<Insets top="20" bottom="20" right="20" left="30"/>
+</padding>
+<children>
+<HBox
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+alignment="top_center"
+spacing="0">
+<children>
+<Label fx:id="goodsIDLabel"
+       text="     商品编号"
+>
+<font>
+<Font size="25.0" style="bold"
+       />
+</font>
+</Label>
+<Label fx:id="goodsNameLabel"
+       text="                    商品名称"
+>
+<font>
+<Font size="25.0" style="bold"
+       />
+</font>
+</Label>
+<Label fx:id="goodsTypeLabel"
+       text="              商品型号"
+>
+<font>
+<Font size="25.0" style="bold"
+       />
+</font>
+</Label>
+<Label fx:id="goodsAmountLabel"
+       text="             商品数量"
+>
+<font>
+<Font size="25.0" style="bold"
+       />
+</font>
+</Label>
+<Label fx:id="goodsAveragePriceLabel"
+       text="            商品均价"
+>
+<font>
+<Font size="25.0" style="bold"
+       />
+</font>
+</Label>
+<Label fx:id="goodsProductionDateLabel"
+       text="         商品出厂日期"
+>
+<font>
+<Font size="25.0" style="bold"
+       />
+</font>
+</Label>
+</children>
+</HBox>
+
+
+
+<ScrollPane
+styleClass="scrollpane"
+>
+<padding>
+<Insets top="0" bottom="0" right="0" left="0"/>
+</padding>
+<HBox
+fx:id="invenCheckContents"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+alignment="top_center"
+spacing="120"
+prefHeight="500">
+<padding>
+<Insets top="20" bottom="20" right="20" left="20"/>
+</padding>
+<children>
+<VBox
+fx:id="goodsID"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="5">
+<children>
+
+</children>
+</VBox>
+<VBox
+fx:id="goodsName"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="5">
+<children>
+
+</children>
+</VBox>
+<VBox
+fx:id="goodsType"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="5">
+<children>
+
+</children>
+</VBox>
+<VBox
+fx:id="goodsAmount"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="5">
+<children>
+</children>
+</VBox>
+<VBox
+fx:id="goodsAveragePrice"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="5">
+<children>
+</children>
+</VBox>
+<VBox
+fx:id="goodsProductionDate"
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="5">
+<children>
+</children>
+</VBox>
+</children>
+</HBox>
+</ScrollPane>
+</children>
+</VBox>
+
+
+<HBox
+maxHeight="-Infinity"
+minHeight="-Infinity"
+maxWidth="-Infinity"
+minWidth="-Infinity"
+spacing="40"
+>
+<children>
+<Button fx:id="confirm"
+        text="确认"
+        onAction="#confirmInvenCheck"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="25.0" />
+</font>
+</Button>
+<Button fx:id="export"
+        text="导出"
+        onAction="#exportInvenCheck"
+        styleClass="usercase-buttons"
+>
+<font>
+<Font size="25.0" />
+</font>
+</Button>
+</children>
+</HBox>
+</children>
+</VBox>
