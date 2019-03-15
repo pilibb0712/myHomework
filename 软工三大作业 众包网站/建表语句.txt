@@ -1,7 +1,0 @@
-create database summer;
-
-use summer;
-
-create table userpo(username varchar(50),emailaddress varchar(50),totalcredit int,password varchar(50));
-
-create table projectrank(projectid varchar(50),rankkey varchar(50),rankvalue int);
