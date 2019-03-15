@@ -1,0 +1,35 @@
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.summer.mapper.UserMapper">
+    <insert id="insert" parameterType="UserPO">
+        INSERT INTO USERPO(USERNAME,EMAILADDRESS,TOTALCREDIT,PASSWORD)
+        VALUES
+        (#{username},#{email.address},#{totalCredit},#{password})
+    </insert>
+    <select id="queryByUserName" parameterType="string" resultMap="Users">
+        SELECT DISTINCT * FROM USERPO WHERE USERNAME=#{username}
+    </select>
+    <select id="queryByEmail" parameterType="string" resultMap="Users">
+        SELECT DISTINCT * FROM USERPO WHERE EMAILADDRESS=#{email}
+    </select>
+    <select id="queryByLogStrAndPsd" resultMap="Users">
+        SELECT DISTINCT * FROM USERPO WHERE (USERNAME=#{logStr} OR EMAILADDRESS=#{logStr}) AND PASSWORD=#{password}
+    </select>
+    <select id="query" resultMap="Users">
+        SELECT DISTINCT * FROM USERPO
+    </select>
+    <update id="update" parameterType="UserPO">
+        UPDATE USERPO SET EMAILADDRESS=#{email.address},TOTALCREDIT=#{totalCredit},PASSWORD=#{password} WHERE USERNAME=#{username}
+    </update>
+    <delete id="delete" parameterType="string">
+        DELETE FROM USERPO WHERE USERNAME=#{username}
+    </delete>
+    <resultMap id="Users" type="UserPO">
+        <id column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="totalCredit" jdbcType="INTEGER" property="totalCredit"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <association property="email" javaType="EmailPO">
+            <result column="emailAddress" jdbcType="VARCHAR" property="address"/>
+        </association>
+    </resultMap>
+</mapper>
+

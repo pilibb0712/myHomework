@@ -1,0 +1,20 @@
+
+    <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.example.summer.mapper.MarkDotConMapper">
+        <insert id="insert">
+            INSERT INTO MARKDOTCON (MARKID,DOTID)
+            VALUES
+            (#{markId},#{dotId})
+        </insert>
+        <select id="queryByMarkId" parameterType="string" resultMap="dotIds">
+            SELECT DISTINCT DOTID FROM MARKDOTCON WHERE MARKID=#{markId}
+        </select>
+        <delete id="deleteByMarkId" parameterType="string">
+            DELETE FROM MARKDOTCON WHERE MARKID=#{markId}
+        </delete>
+
+
+        <resultMap id="dotIds" type="string">
+            <result column="dotId" jdbcType="VARCHAR" property="dotId"/>
+        </resultMap>
+    </mapper>

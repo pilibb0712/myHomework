@@ -1,0 +1,13 @@
+
+body{
+    background: url("../img/landing-bg.png") no-repeat;
+    background-size: cover;
+}
+
+.sign-in-prompt{
+    transform: translateY(200%);
+}
+
+.sign-in-form{
+    transform: translateY(150%);
+}

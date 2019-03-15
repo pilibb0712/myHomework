@@ -1,0 +1,20 @@
+
+    <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.example.summer.mapper.MarkRecGroupConMapper">
+        <insert id="insert">
+            INSERT INTO MARKRECGROUPCON (MARKID,GROUPID)
+            VALUES
+            (#{markId},#{groupId})
+        </insert>
+        <select id="queryByMarkId" parameterType="string" resultMap="groupIds">
+            SELECT DISTINCT GROUPID FROM MARKRECGROUPCON WHERE MARKID=#{markId}
+        </select>
+        <delete id="deleteByMarkId" parameterType="string">
+            DELETE FROM MARKRECGROUPCON WHERE MARKID=#{markId}
+        </delete>
+
+
+        <resultMap id="groupIds" type="int">
+            <result column="groupId" jdbcType="INTEGER" property="groupId"/>
+        </resultMap>
+    </mapper>

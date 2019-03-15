@@ -1,0 +1,28 @@
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.summer.mapper.ImageMarkerConMapper">
+    <insert id="insert">
+        INSERT INTO IMAGEMARKERCON (IMAGEID,USERNAME,CREDIT,CURRENTIMG)
+        VALUES
+        (#{imageId},#{marker.username},#{marker.credit},#{marker.currentImg})
+    </insert>
+    <select id="queryByImageId" parameterType="string" resultMap="markers">
+        SELECT DISTINCT  USERNAME,CREDIT,CURRENTIMG FROM IMAGEMARKERCON WHERE IMAGEID=#{imageId}
+    </select>
+    <select id="queryByMarkerName" parameterType="string" resultMap="imageIds">
+        SELECT DISTINCT IMAGEID FROM IMAGEMARKERCON WHERE USERNAME=#{markerName}
+    </select>
+    <delete id="deleteByImageId" parameterType="string">
+        DELETE FROM IMAGEMARKERCON WHERE IMAGEID=#{imageId}
+    </delete>
+
+
+    <resultMap id="markers" type="MarkerInfoPO">
+        <id column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="credit" jdbcType="INTEGER" property="credit"/>
+        <result column="currentImg" jdbcType="BOOLEAN" property="currentImg"/>
+    </resultMap>
+    <resultMap id="imageIds" type="string">
+        <result column="imageId" jdbcType="VARCHAR" property="imageId"/>
+    </resultMap>
+</mapper>
+

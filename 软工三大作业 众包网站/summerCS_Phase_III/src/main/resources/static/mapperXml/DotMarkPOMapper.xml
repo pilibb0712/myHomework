@@ -1,0 +1,27 @@
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.summer.mapper.DotMarkPOMapper">
+    <insert id="insertDotMark"  parameterType="DotMarkPO">
+        INSERT INTO DOTMARK(DOTID, TAG)
+        VALUES
+        (#{dotId},#{tag})
+    </insert>
+    <insert id="insertSomeDotMarks">
+        INSERT INTO DOTMARK(DOTID,TAG)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.dotId},
+            #{item.tag}
+            )
+        </foreach>
+    </insert>
+    <select id="queryByDotId" parameterType="string" resultType="DotMarkPO">
+        SELECT DISTINCT * FROM DOTMARK WHERE DOTID=#{dotId}
+    </select>
+    <update id="updateDotMark" parameterType="DotMarkPO">
+        UPDATE DOTMARK SET TAG=#{tag} WHERE DOTID=#{dotId}
+    </update>
+    <delete id="deleteDotMark" parameterType="string">
+        DELETE FROM DOTMARK WHERE DOTID=#{dotId}
+    </delete>
+</mapper>

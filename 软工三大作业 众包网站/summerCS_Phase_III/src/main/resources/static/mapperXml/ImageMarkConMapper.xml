@@ -1,0 +1,19 @@
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.summer.mapper.ImageMarkConMapper">
+    <insert id="insert">
+            INSERT INTO IMAGEMARKCON (IMAGEID,MARKID)
+            VALUES
+            (#{imageId},#{markId})
+    </insert>
+    <select id="queryByImageId" parameterType="string" resultMap="markIds">
+            SELECT DISTINCT MARKID FROM IMAGEMARKCON WHERE IMAGEID=#{imageId}
+    </select>
+    <delete id="deleteByImageId" parameterType="string">
+            DELETE FROM IMAGEMARKCON WHERE IMAGEID=#{imageId}
+    </delete>
+
+
+    <resultMap id="markIds" type="string">
+            <result column="markId" jdbcType="VARCHAR" property="markId"/>
+    </resultMap>
+</mapper>

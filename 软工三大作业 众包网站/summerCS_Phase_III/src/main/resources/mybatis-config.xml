@@ -1,0 +1,57 @@
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="application.properties"/>
+    <typeAliases>
+        <package name="com.example.summer.domain"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/summer?useSSL=true"/>
+                <property name="username" value="root"/>
+                <property name="password" value="1234"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="static/mapperXml/testMapper.xml"/>
+        <mapper resource="static/mapperXml/DotMarkPOMapper.xml"/>
+        <mapper resource="static/mapperXml/DotMarkPositionConMapper.xml"/>
+        <mapper resource="static/mapperXml/ImageMapper.xml"/>
+        <mapper resource="static/mapperXml/ImageMarkConMapper.xml"/>
+        <mapper resource="static/mapperXml/ImageMarkerConMapper.xml"/>
+        <mapper resource="static/mapperXml/MarkDotConMapper.xml"/>
+        <mapper resource="static/mapperXml/MarkMapper.xml"/>
+        <mapper resource="static/mapperXml/MarkRecGroupConMapper.xml"/>
+        <mapper resource="static/mapperXml/ProjectMapper.xml"/>
+        <mapper resource="static/mapperXml/ProjectMarkerConMapper.xml"/>
+        <mapper resource="static/mapperXml/ProjectRankMapper.xml"/>
+        <mapper resource="static/mapperXml/RecGroupMarksMapper.xml"/>
+        <mapper resource="static/mapperXml/RecGroupMarksRectangleMarkConMapper.xml"/>
+        <mapper resource="static/mapperXml/RectangleMarkMapper.xml"/>
+        <mapper resource="static/mapperXml/SentenceMapper.xml"/>
+        <mapper resource="static/mapperXml/UserMapper.xml"/>
+        <!--package name="static.mapperXml"/-->
+    </mappers>
+</configuration>
+
+<!--
+<mapper resource="static/mapperXml/DotMarkPOMapper.xml"/>
+        <mapper resource="static/mapperXml/DotMarkPositionConMapper.xml"/>
+        <mapper resource="static/mapperXml/ImageMapper.xml"/>
+        <mapper resource="static/mapperXml/ImageMarkConMapper.xml"/>
+        <mapper resource="static/mapperXml/MarkDotConMapper.xml"/>
+        <mapper resource="static/mapperXml/MarkMapper.xml"/>
+        <mapper resource="static/mapperXml/MarkRecGroupConMapper.xml"/>
+        <mapper resource="static/mapperXml/ProjectMapper.xml"/>
+        <mapper resource="static/mapperXml/ProjectRankMapper.xml"/>
+        <mapper resource="static/mapperXml/RecGroupMarksMapper.xml"/>
+        <mapper resource="static/mapperXml/RecGroupMarksRectangleMarkConMapper.xml"/>
+        <mapper resource="static/mapperXml/RectangleMarkMapper.xml"/>
+        <mapper resource="static/mapperXml/SentenceMapper.xml"/>
+        <mapper resource="static/mapperXml/UserMapper.xml"/>
+-->

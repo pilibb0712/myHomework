@@ -1,0 +1,31 @@
+        <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <mapper namespace="com.example.summer.mapper.RecGroupMarksMapper">
+            <insert id="insert" parameterType="RecGroupMarksPO">
+                INSERT INTO RECGROUPMARKS(GROUPID,TAG)
+                VALUES
+                (#{groupId},#{tag})
+            </insert>
+            <insert id="insertSome">
+                INSERT INTO RECGROUPMARKS(GROUPID,TAG)
+                VALUES
+                <foreach collection="list" item="item" index="index" separator=",">
+                    (
+                    #{item.groupId}
+                    #{item.tag}
+                    )
+                </foreach>
+            </insert>
+            <select id="queryById" parameterType="int" resultMap="RecGroupMarksPOs">
+                SELECT DISTINCT * FROM RECGROUPMARKS WHERE GROUPID=#{id}
+            </select>
+            <update id="update" parameterType="RecGroupMarksPO">
+                UPDATE RECGROUPMARKS SET TAG=#{tag} WHERE GROUPID=#{groupId}
+            </update>
+            <delete id="delete" parameterType="int">
+                DELETE FROM RECGROUPMARKS WHERE GROUPID=#{id}
+            </delete>
+    <resultMap id="RecGroupMarksPOs" type="RecGroupMarksPO">
+        <id column="groupId" jdbcType="INTEGER" property="groupId"/>
+        <result column="tag" jdbcType="VARCHAR" property="tag"/>
+    </resultMap>
+        </mapper>

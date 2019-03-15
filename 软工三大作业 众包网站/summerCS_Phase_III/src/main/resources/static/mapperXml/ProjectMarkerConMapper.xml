@@ -1,0 +1,25 @@
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.summer.mapper.ProjectMarkerConMapper">
+    <insert id="insert">
+        INSERT INTO PROJECTMARKERCON (PROJECTID,MARKERNAME)
+        VALUES
+        (#{projectId},#{user.username})
+    </insert>
+    <select id="queryByProjectId" parameterType="string" resultMap="markerInfos">
+        SELECT DISTINCT MARKERNAME FROM PROJECTMARKERCON WHERE PROJECTID=#{projectId}
+    </select>
+    <select id="queryByMarkerName" parameterType="string" resultMap="projectIds">
+        SELECT DISTINCT PROJECTID FROM PROJECTMARKERCON WHERE MARKERNAME=#{markerName}
+    </select>
+    <delete id="deleteByProjectId" parameterType="string">
+        DELETE FROM PROJECTMARKERCON WHERE PROJECTID=#{projectId}
+    </delete>
+
+
+    <resultMap id="markerInfos" type="UserInfoPO">
+        <result column="markerName" jdbcType="VARCHAR" property="username"/>
+    </resultMap>
+    <resultMap id="projectIds" type="string">
+        <result column="projectId" jdbcType="VARCHAR" property="projectId"/>
+    </resultMap>
+</mapper>

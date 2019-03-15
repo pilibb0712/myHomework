@@ -1,0 +1,42 @@
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.summer.mapper.RectangleMarkMapper">
+    <insert id="insert" parameterType="RectangleMarkPO">
+        INSERT INTO RECTANGLEMARK(RECID,TAG,STARTDOTX,STARTDOTY,WIDTH,HEIGHT)
+        VALUES
+        (#{recId},#{tag},#{startDot.x},#{startDot.y},#{width},#{height})
+    </insert>
+    <insert id="insertSome">
+        INSERT INTO RECTANGLEMARK(RECID,TAG,STARTDOTX,STARTDOTY,WIDTH,HEIGHT)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.recId}
+            #{item.tag}
+            #{item.startDot.x}
+            #{item.startDot.y}
+            #{item.width}
+            #{item.height}
+            )
+        </foreach>
+    </insert>
+    <select id="queryById" parameterType="string" resultMap="RectangleMarkPOs">
+        SELECT DISTINCT * FROM RECTANGLEMARK WHERE RECID=#{id}
+    </select>
+    <update id="update" parameterType="RectangleMarkPO">
+        UPDATE RECTANGLEMARK SET TAG=#{tag} STARTDOTX=#{startDot.x},STARTDOTY=#{startDot.y},WIDTH=#{width},HEIGHT=#{height} WHERE RECID=#{recId}
+    </update>
+    <delete id="delete" parameterType="string">
+        DELETE FROM RECTANGLEMARK WHERE RECID=#{id}
+    </delete>
+
+    <resultMap id="RectangleMarkPOs" type="RectangleMarkPO">
+        <id column="recId" jdbcType="VARCHAR" property="recId"/>
+        <result column="tag" jdbcType="VARCHAR" property="tag"/>
+        <result column="width" jdbcType="INTEGER" property="width"/>
+        <result column="height" jdbcType="INTEGER" property="height"/>
+        <association property="startDot" javaType="PositionPO">
+            <result column="startDotX" jdbcType="INTEGER" property="x"/>
+            <result column="startDotY" jdbcType="INTEGER" property="y"/>
+        </association>
+    </resultMap>
+</mapper>

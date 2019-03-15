@@ -1,0 +1,29 @@
+
+    <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.example.summer.mapper.SentenceMapper">
+        <insert id="insert" parameterType="TempSentencePO">
+            INSERT INTO SENTENCE(SENTENCEID,RAWSTR,TOKENS)
+            VALUES
+            (#{sentenceId},#{rawStr},#{tokens})
+        </insert>
+        <insert id="insertSome">
+            INSERT INTO SENTENCE(SENTENCEID,RAWSTR,TOKENS)
+            VALUES
+            <foreach collection="list" item="item" index="index" separator=",">
+                (
+                #{item.sentenceId}
+                #{item.rawStr}
+                #{item.tokens}
+                )
+            </foreach>
+        </insert>
+        <select id="queryById" parameterType="string" resultType="TempSentencePO">
+            SELECT DISTINCT * FROM SENTENCE WHERE SENTENCEID=#{sentenceId}
+        </select>
+        <update id="update" parameterType="TempSentencePO">
+            UPDATE SENTENCE SET RAWSTR=#{rawStr},TOKENS=#{tokens} WHERE SENTENCEID=#{sentenceId}
+        </update>
+        <delete id="delete" parameterType="string">
+            DELETE FROM SENTENCE WHERE SENTENCEID=#{sentenceId}
+        </delete>
+    </mapper>

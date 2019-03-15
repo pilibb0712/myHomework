@@ -1,0 +1,19 @@
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.summer.mapper.DotMarkPositionConMapper">
+        <insert id="insert">
+            INSERT INTO DOTMARKPOSITIONCON(DOTID,POSITIONX,POSITIONY)
+            VALUES
+            (#{dotId},#{positionX},#{positionY})
+        </insert>
+        <select id="queryByDotId" parameterType="string" resultMap="positions">
+            SELECT DISTINCT POSITIONX,POSITIONY FROM DOTMARKPOSITIONCON WHERE DOTID=#{dotId}
+        </select>
+        <delete id="deleteBydotId">
+            DELETE FROM DOTMARKPOSITIONCON WHERE DOTID=#{dotId}
+        </delete>
+
+        <resultMap id="positions" type="PositionPO">
+            <result column="positionX" jdbcType="INTEGER" property="x"/>
+            <result column="positionY" jdbcType="INTEGER" property="y"/>
+        </resultMap>
+    </mapper>

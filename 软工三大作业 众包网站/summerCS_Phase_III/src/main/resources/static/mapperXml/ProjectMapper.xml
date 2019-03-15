@@ -1,0 +1,51 @@
+  <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <mapper namespace="com.example.summer.mapper.ProjectMapper">
+            <insert id="insert" parameterType="ProjectPO">
+                INSERT INTO PROJECT(PROJECTID,PROJECTNAME,DESCRIPTION,REQUIREMENTS,LAUNCHER,CANBEJOINED,TOTALNUMOFIMGS,PROJECTTYPE)
+                VALUES
+                (#{projectId},#{projectName},#{description},#{requirements},#{launcher.username},#{canBeJoined},#{totalNumOfImgs},#{projectType})
+            </insert>
+            <insert id="insertSome">
+                INSERT INTO PROJECT(PROJECTID,PROJECTNAME,DESCRIPTION,REQUIREMENTS,LAUNCHER,CANBEJOINED,TOTALNUMOFIMGS,PROJECTTYPE)
+                VALUES
+                <foreach collection="list" item="item" index="index" separator=",">
+                    (#{item.projectId},#{item.projectName},#{item.description},#{item.requirements},#{item.launcher.username},#{item.canBeJoined},#{item.totalNumOfImgs},#{item.projectType})
+                </foreach>
+            </insert>
+            <select id="queryByProjectId" parameterType="string" resultMap="ProjectPOs">
+                SELECT DISTINCT * FROM PROJECT WHERE PROJECTID=#{projectId}
+            </select>
+            <select id="query" resultMap="ProjectPOs">
+                SELECT DISTINCT * FROM PROJECT
+            </select>
+            <update id="update" parameterType="ProjectPO">
+                UPDATE PROJECT SET
+                PROJECTNAME=#{projectName},
+                DESCRIPTION=#{description},
+                REQUIREMENTS=#{requirements},
+                LAUNCHER=#{launcher.username},
+                CANBEJOINED=#{canBeJoined},
+                TOTALNUMOFIMGS=#{totalNumOfImgs},
+                PROJECTTYPE=#{projectType}
+                WHERE PROJECTID=#{projectId}
+            </update>
+            <!--配置一个resultMap 指定返回的类型 ArrayList<ImagePO>-->
+            <delete id="delete" parameterType="string">
+                DELETE FROM PROJECT WHERE PROJECTID=#{projectId}
+            </delete>
+
+            <resultMap id="ProjectPOs" type="ProjectPO">
+                <id column="projectId" jdbcType="VARCHAR" property="projectId" />
+                <result column="projectName" jdbcType="VARCHAR" property="projectName" />
+                <result column="description" jdbcType="VARCHAR" property="description" />
+                <result column="requirements" jdbcType="VARCHAR" property="requirements" />
+                <result column="canBeJoined" jdbcType="BOOLEAN" property="canBeJoined" />
+                <result column="totalNumOfImgs" jdbcType="INTEGER" property="totalNumOfImgs" />
+                <result column="projectType" jdbcType="VARCHAR" property="projectType"/>
+                <association property="launcher" javaType="UserInfoPO">
+                    <id column="launcher" jdbcType="VARCHAR" property="username"/>
+                </association>
+            </resultMap>
+
+
+        </mapper>

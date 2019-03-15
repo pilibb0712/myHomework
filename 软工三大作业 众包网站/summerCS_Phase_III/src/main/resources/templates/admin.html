@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Summer Crowd Sourcing | Admin</title>
+
+    <!--CDN-->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!--Other css-->
+    <link rel="stylesheet" href="/plugin/pieChart/pieChart.css">
+    <link rel="stylesheet" href="/plugin/barChart/css/main.css">
+    <link rel="stylesheet" href="/css/public.css">
+
+    <!--Other js-->
+    <script src="/js/admin.js"></script>
+    <script src="/plugin/cookie/jquery.cookie.js"></script>
+
+    <script src="/plugin/charts/Chart.bundle.js"></script>
+    <script src="/plugin/charts/Chart.bundle.min.js"></script>
+
+    <link href="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!--logo-->
+        <div class="row logo-margin-top">
+            <img src="/img/logo.png">
+        </div>
+        <!--logo-->
+
+        <!--标题-->
+        <div class="page-header">
+            <h1>Welcome administrator
+                <small id="username">username</small>
+            </h1>
+        </div>
+        <!--标题-->
+
+        <!--用户总数-->
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Total number of users: </h3>
+            </div>
+            <div class="col-md-2">
+                <h3 id="total-user-num">0</h3>
+            </div>
+        </div>
+        <!--用户总数-->
+
+        <hr/>
+
+        <!--用户注册情况-->
+        <div class="row">
+            <h3>User registration record</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>Select date range</label>
+            </div>
+            <div class="col-md-5">
+                <div class="input-daterange input-group" id="datepicker">
+                    <input id="start-date" type="text" class="input-sm form-control" name="start"/>
+                    <span class="input-group-addon">to</span>
+                    <input id="end-date" type="text" class="input-sm form-control" name="end"/>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <button id="date-pick-btn" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+        </div>
+        <div class="row">
+            <canvas id="user-registration-canvas" width="800" height="500"></canvas>
+        </div>
+        <!--用户注册情况-->
+
+        <hr>
+
+        <!--项目分类-->
+        <div class="row">
+            <h3>Projects classification</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p>Doing</p>
+                <canvas id="doing-projects-canvas" width="500" height="500"></canvas>
+            </div>
+            <div class="col-md-6">
+                <p>Done</p>
+                <canvas id="done-projects-canvas"></canvas>
+            </div>
+        </div>
+        <!--项目分类-->
+
+        <hr>
+
+        <!--每个项目的积分统计-->
+        <div class="row">
+            <h3>Projects credits</h3>
+        </div>
+        <div class="row">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Project id</th>
+                    <th>Credit</th>
+                    <th>Close</th>
+                </tr>
+                </thead>
+
+                <tbody id="credit-list"></tbody>
+            </table>
+        </div>
+        <!--每个项目的积分统计-->
+
+    </div>
+
+    <div th:include="base :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.summer.mapper.ProjectRankMapper">
+     <insert id="insert">
+         INSERT INTO PROJECTRANK(PROJECTID,RANKKEY,RANKVALUE)
+         VALUES
+         (#{projectId},#{rankKey},#{rankValue})
+     </insert>
+    <select id="queryById" parameterType="string" resultMap="map">
+        SELECT DISTINCT RANKKEY,RANKVALUE FROM PROJECTRANK WHERE PROJECTID=#{projectId}
+    </select>
+   <delete id="delete" parameterType="string">
+       DELETE FROM PROJECTRANK WHERE PROJECTID=#{projectId}
+    </delete>
+
+    <resultMap id="map" type="java.util.LinkedHashMap" >  <!--try and test-->
+        <result column="rankKey" jdbcType="VARCHAR" property="rankKey"/>
+        <result column="rankValue" jdbcType="INTEGER" property="rankValue"/>
+    </resultMap>
+</mapper>
+
+

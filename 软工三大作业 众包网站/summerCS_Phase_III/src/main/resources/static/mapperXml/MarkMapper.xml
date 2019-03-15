@@ -1,0 +1,46 @@
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.summer.mapper.MarkMapper">
+    <insert id="insert" parameterType="MarkPO">
+        INSERT INTO MARK(MARKID,USERNAME,SENTENCEID,RECTANGLEMARKID)
+        VALUES
+        (#{markId},#{username},#{sentence.sentenceId},#{singleRecMark.recId})
+    </insert>
+    <insert id="insertSome">
+        INSERT INTO MARK(MARKID,USERNAME,SENTENCEID,RECTANGLEMARKID)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.markId}
+            #{item.username}
+            #{item.sentence.sentenceId}
+            #{item.singleRecMark.recId}
+            )
+        </foreach>
+    </insert>
+    <select id="queryByMarkId" parameterType="string" resultMap="marks">
+        SELECT DISTINCT * FROM MARK WHERE MARKID=#{markId}
+    </select>
+    <select id="queryByUserName" parameterType="string" resultMap="marks">
+        SELECT DISTINCT * FROM MARK WHERE USERNAME=#{username}
+    </select>
+    <select id="queryByMarkIdAndUserName" resultMap="marks">
+        SELECT DISTINCT * FROM MARK WHERE MARKID=#{markId} AND USERNAME=#{username}
+    </select>
+    <update id="update" parameterType="MarkPO">
+        UPDATE MARK SET USERNAME=#{username},SENTENCEID=#{sentence.sentenceId},RECTANGLEMARKID=#{singleRecMark.recId} WHERE MARKID=#{markId}
+    </update>
+    <delete id="delete" parameterType="string">
+        DELETE FROM MARK WHERE MARKID=#{markId}
+    </delete>
+
+    <resultMap id="marks" type="MarkPO">
+        <id column="markId" jdbcType="VARCHAR" property="markId"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <association property="sentence" javaType="SentencePO">
+            <id column="sentenceId" jdbcType="VARCHAR" property="sentenceId"/>
+        </association>
+        <association property="singleRecMark" javaType="RectangleMarkPO">
+            <id column="rectangleMarkId" jdbcType="VARCHAR" property="recId"/>
+        </association>
+    </resultMap>
+</mapper>
