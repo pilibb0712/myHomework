@@ -9,7 +9,7 @@ def analysis():
     #cv.imshow("input image", canny)
 
     out_binary, contours, hierarchy = cv.findContours(canny, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
-    #提取轮廓
+    #提取轮廓list
     result=[]
     for cnt in range(len(contours)):
         area = cv.contourArea(contours[cnt])
