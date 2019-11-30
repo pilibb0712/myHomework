@@ -9,7 +9,7 @@ def analysis():
     #cv.imshow("input image", canny)
 
     out_binary, contours, hierarchy = cv.findContours(canny, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
-
+    #提取轮廓
     result=[]
     for cnt in range(len(contours)):
         area = cv.contourArea(contours[cnt])
@@ -22,11 +22,12 @@ def analysis():
         # 轮廓逼近
         #epsilon = 0.01 * cv.arcLength(contours[cnt], True)
         approx = cv.approxPolyDP(contours[cnt],20, True)
+        #进行多边拟合
         #because we draw shapes by hand, so the epsilon needs to be large, not too exact
-       # cv.polylines(result, approx,True, (0, 255, 0), 2)
+        #cv.polylines(result, approx,True, (0, 255, 0), 2)
         hull=cv.convexHull(approx,True)
+        #凸包分析
         corners=len(hull)
-        # 利用几何逼近，再凸包分析有几个顶点，由此分析几何形状
         shape_type = ""
         if corners == 3:
             shape_type = "triangle"
